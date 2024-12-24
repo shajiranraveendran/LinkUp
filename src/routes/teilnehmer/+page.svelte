@@ -12,6 +12,7 @@
 </script>
 
 <h1>TEILNEHMER</h1>
+<a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
 
-<TeilnehmerForm {teilnehmer}></TeilnehmerForm>
+<!--<TeilnehmerForm {teilnehmer}></TeilnehmerForm>-->
 <TeilnehmerList {data}></TeilnehmerList>
