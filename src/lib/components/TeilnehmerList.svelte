@@ -5,9 +5,10 @@
 <table>
     <thead>
         <tr>
-            <th scope="col">Vorname</th>
-            <th scope="col">Nachname</th>
-            <th scope="col">Email</th>
+            <th scope="col">VORNAME</th>
+            <th scope="col">NACHNAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">AKTION</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,12 @@
                 <td>{person.vorname}</td>
                 <td>{person.nachname}</td>
                 <td>{person.email}</td>
+                <td>
+                    <form method="POST" action="?/delete">
+                        <input type="hidden" name="id" value={person._id} />
+                        <button class="btn btn-danger">DELETE</button>
+                    </form>
+                </td>
             </tr>
         {/each}
     </tbody>

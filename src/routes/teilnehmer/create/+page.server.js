@@ -1,6 +1,8 @@
 import { createTeilnehmer } from '$lib/db.js';
 import { redirect } from '@sveltejs/kit';
 
+
+// TEILNEHMER ERSTELLEN
 export const actions = {
     create: async ({ request }) => {
         let data = await request.formData();
@@ -14,7 +16,6 @@ export const actions = {
             await createTeilnehmer(person);
             return redirect(303, '/teilnehmer');
         } catch (error) {
-            console.log(error.message);
             return { success: false };
         }
     }
