@@ -1,4 +1,4 @@
-import { getEvents } from '$lib/db.js';
+import { getEvents, deleteEvent, updateEvent } from '$lib/db.js';
 
 // EVENTS ANZEIGEN
 export async function load() {
@@ -6,26 +6,27 @@ export async function load() {
         events: await getEvents()
     };
 }
-/*
-// TEILNEHMER LÖSCHEN
+
+// EVENT LÖSCHEN
 export const actions = {
     delete: async ({ request }) => {
         const data = await request.formData();
 
-        // TEILNEHMER MIT ID LÖSCHEN
-        deletePerson(data.get('id'));
+        // EVENT NACH ID LÖSCHEN
+        deleteEvent(data.get('id'));
 
-        let person = {
+        let event = {
             _id: data.get('id'),
-            vorname: data.get('vorname'),
-            nachname: data.get('nachname'),
-            email: data.get('email'),
+            eventname: data.get('eventname'),
+            beschreibung: data.get('beschreibung'),
+            datum: data.get('datum'),
+            adresse: data.get('adresse'),
         };
 
-        // TEILNEHMER AKTUALISIEREN
-        await updatePerson(person);
+        // EVENT AKTUALISIEREN
+        await updateEvent(event);
 
         return { success: true };
     }
 };
-*/
+

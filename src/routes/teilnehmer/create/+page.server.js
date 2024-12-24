@@ -12,7 +12,6 @@ export const actions = {
 
         try {
             await createTeilnehmer(person);
-            // Return success flag and participant's data
             return { success: true, vorname: person.vorname, nachname: person.nachname };
         } catch (error) {
             return { success: false };

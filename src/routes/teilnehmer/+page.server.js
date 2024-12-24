@@ -12,7 +12,7 @@ export const actions = {
     delete: async ({ request }) => {
         const data = await request.formData();
 
-        // TEILNEHMER MIT ID LÖSCHEN
+        // TEILNEHMER NACH ID LÖSCHEN
         deletePerson(data.get('id'));
 
         let person = {
