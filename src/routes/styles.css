@@ -14,6 +14,11 @@ label {
     color: #c3e4eefb;
 }
 
+table {
+    color: #c3e4eefb;
+    border-collapse: collapse;
+    width: 100%;
+}
 
 /* NAVIGTATION */
 .nav {
