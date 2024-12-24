@@ -1,14 +1,6 @@
 <!-- SCRIPT -->
 <script>
     import EventCard from "$lib/components/EventCard.svelte";
-
-    /*let event = {
-        eventname: "",
-        beschreibung: "",
-        datum: "",
-        adresse: "",
-    };*/
-
     let { data } = $props();
 </script>
 

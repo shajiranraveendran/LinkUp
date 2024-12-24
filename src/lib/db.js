@@ -26,7 +26,7 @@ export async function getTeilnehmer() {
             person._id = person._id.toString();
         });
 
-    // CONSOLE LOG
+        // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getTeilnehmer:", error);
         throw error;
@@ -94,12 +94,33 @@ export async function getEvents() {
             event._id = event._id.toString();
         });
 
-    // CONSOLE LOG
+        // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getEvents:", error);
         throw error;
     }
     return events;
+}
+
+// GET EVENT
+export async function getEvent(id) {
+    let event = null;
+    try {
+        const collection = db.collection("events");
+        const query = { _id: new ObjectId(id) };
+        event = await collection.findOne(query);
+
+        if (!event) {
+            console.log("No event with id " + id);
+            // TODO: errorhandling
+        } else {
+            event._id = event._id.toString();
+        }
+    } catch (error) {
+        // TODO: errorhandling
+        console.log(error.message);
+    }
+    return event;
 }
 
 // CREATE EVENT
@@ -121,6 +142,7 @@ export async function createEvent(event) {
 // UPDATE EVENT
 export async function updateEvent(event) {
     try {
+        const eventname = event.eventname;
         const id = event._id;
         delete event._id;
         const collection = db.collection("events");
@@ -128,7 +150,7 @@ export async function updateEvent(event) {
         const result = await collection.updateOne(query, { $set: event });
 
         // CONSOLE LOG
-        console.log(`Event: ${id} wurde aktualisiert.`);
+        console.log(`Event: ${eventname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updateEvent:", error);
     }
