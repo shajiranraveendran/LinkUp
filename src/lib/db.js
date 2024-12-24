@@ -104,6 +104,7 @@ export async function getEvents() {
 
 // CREATE EVENT
 export async function createEvent(event) {
+    event.poster = "/images/placeholder.jpg";
     try {
         const collection = db.collection("events");
         const result = await collection.insertOne(event);

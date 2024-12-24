@@ -2,12 +2,12 @@
 <script>
     import EventCard from "$lib/components/EventCard.svelte";
 
-    let event = {
+    /*let event = {
         eventname: "",
         beschreibung: "",
         datum: "",
         adresse: "",
-    };
+    };*/
 
     let { data } = $props();
 </script>
@@ -19,4 +19,4 @@
 <a href="/events/create" class="btn btn-primary" role="button">ADD EVENT</a><br /><br />
 
 <!-- EVENT LIST -->
-<EventCard {data}></EventCard>
+<EventCard { data }></EventCard>
