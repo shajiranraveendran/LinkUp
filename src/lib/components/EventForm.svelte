@@ -1,3 +1,4 @@
+<!-- SCRIPT -->
 <script>
     let { event } = $props();
 
@@ -6,6 +7,9 @@
     }
 </script>
 
+
+<!-- HTML -->
+<!-- FORM -->
 <form onsubmit={output}>
     <div class="mb-3">
         <label class="form-label" for="">EVENTNAME:</label>

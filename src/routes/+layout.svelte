@@ -4,6 +4,7 @@
     let { children } = $props();
 </script>
 
+<!-- HTML -->
 <!-- NAVIGATION-->
 <div class="nav">
     <nav class="navbar">

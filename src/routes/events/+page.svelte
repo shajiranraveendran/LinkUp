@@ -1,3 +1,4 @@
+<!-- SCRIPT -->
 <script>
     import EventForm from "$lib/components/EventForm.svelte";
 
@@ -9,6 +10,8 @@
     };
 </script>
 
+<!-- HTML -->
 <h1>EVENTS</h1>
 
+<!-- EVENT LIST -->
 <EventForm {event}></EventForm>

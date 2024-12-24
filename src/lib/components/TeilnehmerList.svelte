@@ -1,7 +1,11 @@
+<!-- SCRIPT -->
 <script>
     let { data } = $props();
 </script>
 
+
+<!-- HTML -->
+<!-- TEILNEHMER LIST -->
 <table>
     <thead>
         <tr>

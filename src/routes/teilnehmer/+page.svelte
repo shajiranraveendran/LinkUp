@@ -1,3 +1,4 @@
+<!-- SCRIPT -->
 <script>
     import TeilnehmerForm from "$lib/components/TeilnehmerForm.svelte";
     import TeilnehmerList from "$lib/components/TeilnehmerList.svelte";
@@ -11,8 +12,12 @@
     let { data } = $props();
 </script>
 
+
+<!-- HTML -->
 <h1>TEILNEHMER</h1>
+
+<!-- TEILNEHMER ADD -->
 <a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
 
-<!--<TeilnehmerForm {teilnehmer}></TeilnehmerForm>-->
+<!-- TEILNEHMER LIST -->
 <TeilnehmerList {data}></TeilnehmerList>
