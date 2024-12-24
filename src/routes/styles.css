@@ -1,26 +1,19 @@
 /* OVERALL */
 body {
     background-color: rgb(7, 46, 61);
+    color: #c3e4eefb;
     font-family: Andale Mono, monospace;
     padding: 30px;
+    width: 90%;
+    margin: 0 auto; 
+
 }
 
 h1 {
-    color: #c3e4eefb;
     margin-top: 20px;
 }
 
-label {
-    color: #c3e4eefb;
-}
-
-table {
-    color: #c3e4eefb;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-/* NAVIGTATION */
+/* NAVIGATION */
 .nav {
     border: 1px solid #cccccc2d;
 }
@@ -39,4 +32,29 @@ table {
 
 .navfont:hover {
     color: #fafafafb;
+}
+
+/* TABLE */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #cccccc2d;
+}
+
+thead {
+    background-color: rgb(5, 32, 43);
+}
+
+tbody {
+    background-color: rgb(7, 46, 61);
+}
+
+tr:hover {
+    background-color: rgb(5, 32, 43);
 }
