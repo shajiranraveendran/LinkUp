@@ -1,6 +1,5 @@
 <!-- SCRIPT -->
 <script>
-    import TeilnehmerForm from "$lib/components/TeilnehmerForm.svelte";
     import TeilnehmerList from "$lib/components/TeilnehmerList.svelte";
 
     let teilnehmer = {

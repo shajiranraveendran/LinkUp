@@ -5,8 +5,7 @@ body {
     font-family: Andale Mono, monospace;
     padding: 30px;
     width: 90%;
-    margin: 0 auto; 
-
+    margin: 0 auto;
 }
 
 h1 {
@@ -19,7 +18,9 @@ h1 {
 }
 
 .btn:hover {
-    background-color: rgb(10, 71, 95);}
+    background-color: rgb(10, 71, 95);
+}
+
 
 /* NAVIGATION */
 .nav {
@@ -41,6 +42,7 @@ h1 {
 .navfont:hover {
     color: #fafafafb;
 }
+
 
 /* TABLE */
 table {

@@ -13,6 +13,7 @@ const db = client.db("LinkUpDB");
 //////////////////////////////////////////
 
 
+// TEILNEHMER //
 
 // GET TEILNEHMER
 export async function getTeilnehmer() {
@@ -76,5 +77,73 @@ export async function deletePerson(id) {
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde gelöscht.`);
     } catch (error) {
         console.error("Fehler in deletePerson:", error);
+    }
+}
+
+
+// EVENTS //
+
+// GET EVENTS
+export async function getEvents() {
+    let events = [];
+    try {
+        const collection = db.collection("events");
+        const query = {};
+        events = await collection.find(query).toArray();
+        events.forEach((event) => {
+            event._id = event._id.toString();
+        });
+
+    // CONSOLE LOG
+    } catch (error) {
+        console.error("Fehler in getEvents:", error);
+        throw error;
+    }
+    return events;
+}
+
+// CREATE EVENT
+export async function createEvents(event) {
+    try {
+        const collection = db.collection("events");
+        const result = await collection.insertOne(event);
+
+        // CONSOLE LOG
+        console.log(`Event: ${event.eventname} wurde erstellt.`);
+        return result.insertedId.toString();
+    } catch (error) {
+        console.error("Fehler in createEvent:", error);
+    }
+    return null;
+}
+
+// UPDATE EVENT
+export async function updateEvent(event) {
+    try {
+        const id = event._id;
+        delete event._id;
+        const collection = db.collection("events");
+        const query = { _id: new ObjectId(id) };
+        const result = await collection.updateOne(query, { $set: event });
+
+        // CONSOLE LOG
+        console.log(`Event: ${id} wurde aktualisiert.`);
+    } catch (error) {
+        console.error("Fehler in updateEvent:", error);
+    }
+}
+
+// DELETE EVENT
+export async function deleteEvent(id) {
+    try {
+        const collection = db.collection("events");
+        const query = { _id: new ObjectId(id) };
+        const event = await collection.findOne(query);
+        await collection.deleteOne(query);
+
+        // CONSOLE LOG
+        console.log(`Event: ${event.eventname} wurde gelöscht.`);
+    } catch (error) {
+        console.error("Fehler in deleteEvent:", error);
     }
 }

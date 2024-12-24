@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script>
-    import EventForm from "$lib/components/EventForm.svelte";
+    import EventCard from "$lib/components/EventCard.svelte";
 
     let event = {
         eventname: "",
@@ -8,10 +8,15 @@
         datum: "",
         adresse: "",
     };
+
+    let { data } = $props();
 </script>
 
 <!-- HTML -->
 <h1>EVENTS</h1>
 
+<!-- TEILNEHMER ADD -->
+<a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
+
 <!-- EVENT LIST -->
-<EventForm {event}></EventForm>
+<EventCard {data}></EventCard>
