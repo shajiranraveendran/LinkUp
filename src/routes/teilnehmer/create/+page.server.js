@@ -1,6 +1,4 @@
 import { createTeilnehmer } from '$lib/db.js';
-import { redirect } from '@sveltejs/kit';
-
 
 // TEILNEHMER ERSTELLEN
 export const actions = {
@@ -14,7 +12,8 @@ export const actions = {
 
         try {
             await createTeilnehmer(person);
-            return redirect(303, '/teilnehmer');
+            // Return success flag and participant's data
+            return { success: true, vorname: person.vorname, nachname: person.nachname };
         } catch (error) {
             return { success: false };
         }

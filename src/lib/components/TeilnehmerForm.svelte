@@ -1,7 +1,5 @@
 <!-- SCRIPT -->
 <script>
-    let { teilnehmer } = $props();
-
     function output() {
         alert("Danke für die Teilnahme!");
     }
@@ -10,35 +8,19 @@
 
 <!-- HTML -->
 <!-- FORM -->
-<form onsubmit={output}>
+<form method="POST" action="?/create">
     <div class="mb-3">
-        <label class="form-label" for="">VORNAME:</label>
-        <input
-            class="form-control"
-            type="text"
-            bind:value={teilnehmer.vorname}
-        />
+        <label for="" class="form-label">VORNAME</label>
+        <input name="vorname" class="form-control" type="text" required />
     </div>
-
     <div class="mb-3">
-        <label class="form-label" for="">NACHNAME:</label>
-        <input
-            class="form-control"
-            type="text"
-            bind:value={teilnehmer.nachname}
-        />
+        <label for="" class="form-label">NACHNAME</label>
+        <input name="nachname" class="form-control" type="text" required />
     </div>
-
-    <div class="mb-5">
-        <label class="form-label" for="">EMAIL:</label>
-        <input
-            class="form-control"
-            type="email"
-            bind:value={teilnehmer.email}
-        />
-    </div>
-
     <div class="mb-3">
-        <button class="btn btn-primary" type="submit">SPEICHERN</button>
+        <label for="" class="form-label">EMAIL</label>
+        <input name="email" class="form-control" type="email" required />
     </div>
+    <br />
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
 </form>
