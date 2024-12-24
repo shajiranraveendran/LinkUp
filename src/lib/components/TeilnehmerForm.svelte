@@ -1,11 +1,3 @@
-<!-- SCRIPT -->
-<script>
-    function output() {
-        alert("Danke für die Teilnahme!");
-    }
-</script>
-
-
 <!-- HTML -->
 <!-- FORM -->
 <form method="POST" action="?/create">

@@ -1,38 +1,21 @@
-<!-- SCRIPT -->
-<script>
-    let { event } = $props();
-
-    function output() {
-        alert("Event wurde gespeichert!");
-    }
-</script>
-
-
 <!-- HTML -->
 <!-- FORM -->
-<form onsubmit={output}>
+<form method="POST" action="?/create">
     <div class="mb-3">
-        <label class="form-label" for="">EVENTNAME:</label>
-        <input class="form-control" type="text" bind:value={event.eventname} />
+        <label for="" class="form-label">EVENTNAME</label>
+        <input name="eventname" class="form-control" type="text" required />
     </div>
-
     <div class="mb-3">
-        <label class="form-label" for="">BESCHREIBUNG:</label>
-        <input class="form-control" type="text" bind:value={event.beschreibung}
-        />
+        <label for="" class="form-label">BESCHREIBUNG</label>
+        <input name="beschreibung" class="form-control" type="text" required />
     </div>
-
     <div class="mb-3">
-        <label class="form-label" for="">DATUM:</label>
-        <input class="form-control" type="date" bind:value={event.datum} />
+        <label for="" class="form-label">DATUM</label>
+        <input name="datum" class="form-control" type="date" required />
     </div>
-
-    <div class="mb-5">
-        <label class="form-label" for="">ADRESSE:</label>
-        <input class="form-control" type="text" bind:value={event.adresse} />
-    </div>
-
     <div class="mb-3">
-        <button class="btn btn-primary" type="submit">SPEICHERN</button>
-    </div>
+        <label for="" class="form-label">ADRESSE</label>
+        <input name="adresse" class="form-control" type="text" required />
+    <br />
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
 </form>

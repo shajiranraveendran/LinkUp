@@ -103,7 +103,7 @@ export async function getEvents() {
 }
 
 // CREATE EVENT
-export async function createEvents(event) {
+export async function createEvent(event) {
     try {
         const collection = db.collection("events");
         const result = await collection.insertOne(event);

@@ -15,8 +15,8 @@
 <!-- HTML -->
 <h1>EVENTS</h1>
 
-<!-- TEILNEHMER ADD -->
-<a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
+<!-- EVENT ADD -->
+<a href="/events/create" class="btn btn-primary" role="button">ADD EVENT</a><br /><br />
 
 <!-- EVENT LIST -->
 <EventCard {data}></EventCard>
