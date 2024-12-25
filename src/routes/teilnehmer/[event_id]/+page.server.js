@@ -1,16 +1,18 @@
-import { getEvent, updateEvent, deleteEvent } from '$lib/db.js'
+import { getEvent, updateEvent } from '$lib/db.js'
 
-// EVENTS ANZEIGEN
 export async function load({ params }) {
-        return { event: await getEvent(params.event_id) };
+    return {
+        event: await getEvent(params.event_id)
+    }
 }
 
 
+// EVENT AKTUALISIEREN
 export const actions = {
-    // EVENT AKTUALISIEREN
     update: async ({ request }) => {
         const data = await request.formData();
-        const event = {
+
+        let event = {
             _id: data.get('id'),
             eventname: data.get('eventname'),
             beschreibung: data.get('beschreibung'),
@@ -20,9 +22,9 @@ export const actions = {
 
         try {
             await updateEvent(event);
-            return { success: true, eventname: event.eventname };
-        } catch {
+            return { success: true, eventname: event.eventname};
+        } catch (error) {
             return { success: false };
         }
     }
-};
+}

@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script>
-    let { data } = $props();
+    export let data;
 </script>
 
 <!-- HTML -->

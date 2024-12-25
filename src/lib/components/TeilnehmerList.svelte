@@ -1,18 +1,17 @@
 <!-- SCRIPT -->
 <script>
-    let { data } = $props();
+    export let data;
 </script>
-
 
 <!-- HTML -->
 <!-- TEILNEHMER LIST -->
 <table>
     <thead>
         <tr>
-            <th scope="col">VORNAME</th>
-            <th scope="col">NACHNAME</th>
-            <th scope="col">EMAIL</th>
-            <th scope="col">AKTION</th>
+            <th>VORNAME</th>
+            <th>NACHNAME</th>
+            <th>EMAIL</th>
+            <th>AKTION</th>
         </tr>
     </thead>
     <tbody>
@@ -22,12 +21,25 @@
                 <td>{person.nachname}</td>
                 <td>{person.email}</td>
                 <td>
-                    <form method="POST" action="?/delete">
-                        <input type="hidden" name="id" value={person._id} />
-                        <button class="btn btn-danger">DELETE</button>
-                    </form>
+                    <div class="action-btn">
+                        <form method="POST" action="?/delete">
+                            <input type="hidden" name="id" value={person._id} />
+                            <button class="btn btn-danger">EDIT</button>
+                        </form>
+                        <form method="POST" action="?/delete">
+                            <input type="hidden" name="id" value={person._id} />
+                            <button class="btn btn-danger">DELETE</button>
+                        </form>
+                    </div>
                 </td>
             </tr>
         {/each}
     </tbody>
 </table>
+
+<style>
+    .action-btn {
+        display: flex;
+        gap: 10px;
+    }
+</style>

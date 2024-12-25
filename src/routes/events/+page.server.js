@@ -11,22 +11,15 @@ export async function load() {
 export const actions = {
     delete: async ({ request }) => {
         const data = await request.formData();
+        const eventId = data.get('id');
 
-        // EVENT NACH ID LÖSCHEN
-        deleteEvent(data.get('id'));
+        try {
+            await deleteEvent(eventId)
 
-        let event = {
-            _id: data.get('id'),
-            eventname: data.get('eventname'),
-            beschreibung: data.get('beschreibung'),
-            datum: data.get('datum'),
-            adresse: data.get('adresse'),
-        };
-
-        // EVENT AKTUALISIEREN
-        await updateEvent(event);
-
-        return { success: true };
+            return { success: true};
+        } catch (error) {
+            console.error("Fehler beim Löschen des Events: ", error);
+            return { success: false };
+        }
     }
 };
-

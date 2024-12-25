@@ -10,5 +10,14 @@
 <!-- EVENT ADD -->
 <a href="/events/create" class="btn btn-primary" role="button">ADD EVENT</a><br /><br />
 
+<!-- MESSAGE -->
+{#if data?.success}
+    <div class="alert alert-success mt-3">
+        Event wurde erfolgreich gelöscht!
+    </div>
+{/if}
+
 <!-- EVENT LIST -->
 <EventCard { data }></EventCard>
+
+
