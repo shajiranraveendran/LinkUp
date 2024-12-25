@@ -21,6 +21,7 @@
 
             <form method="POST" action="?/delete">
                 <input type="hidden" name="id" value={event._id} />
+                <input type="hidden" name="eventname" value={event.eventname} />
                 <button class="btn btn-danger">DELETE</button>
             </form>
         </div>

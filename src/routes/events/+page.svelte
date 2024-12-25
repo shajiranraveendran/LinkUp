@@ -1,23 +1,23 @@
 <!-- SCRIPT -->
 <script>
     import EventCard from "$lib/components/EventCard.svelte";
-    let { data } = $props();
+
+    export let data;
+    export let form;
 </script>
 
 <!-- HTML -->
 <h1>EVENTS</h1>
 
 <!-- EVENT ADD -->
-<a href="/events/create" class="btn btn-primary" role="button">ADD EVENT</a><br /><br />
+<a href="/events/create" class="btn btn-primary" role="button">ADD EVENT</a><br />
 
 <!-- MESSAGE -->
-{#if data?.success}
-    <div class="alert alert-success mt-3">
-        Event wurde erfolgreich gelöscht!
+{#if form?.success}
+    <div class="alert alert-danger mt-3">
+        {form.eventname} wurde erfolgreich gelöscht!
     </div>
 {/if}
 
 <!-- EVENT LIST -->
-<EventCard { data }></EventCard>
-
-
+<br /><br /><EventCard {data} />

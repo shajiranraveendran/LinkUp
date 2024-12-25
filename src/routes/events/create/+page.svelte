@@ -10,10 +10,7 @@
 <h1>ADD EVENT</h1>
 
 <!-- BACK BUTTON -->
-<a href="/events" class="btn btn-primary" role="button">BACK</a><br /><br />
-
-<!-- TEILNEHMER FORM -->
-<EventForm { form }></EventForm>
+<a href="/events" class="btn btn-primary" role="button">BACK</a><br />
 
 <!-- MESSAGE -->
 {#if form?.success}
@@ -21,3 +18,8 @@
         {form.eventname} wurde für den {form.datum} erfolgreich erstellt!
     </div>
 {/if}
+
+<!-- TEILNEHMER FORM -->
+<br /><br /><EventForm { form }></EventForm>
+
+
