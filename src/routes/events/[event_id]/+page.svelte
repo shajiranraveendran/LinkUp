@@ -24,7 +24,7 @@
 
             <div class="mb-3">
                 <label class="form-label" for="">BESCHREIBUNG</label>
-                <input class="form-control" type="text" name="beschreibung" id="" value={data.event.beschreibung}/>
+                <textarea class="form-control" name="beschreibung" id="" rows="10">{data.event.beschreibung}</textarea>
             </div>
 
             <div class="mb-3">
