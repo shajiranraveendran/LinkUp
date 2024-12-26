@@ -2,7 +2,16 @@
     import EventEdit from "$lib/components/EventEdit.svelte";
 
     export let data;
+
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
+<!-- HTML -->
 <h1>EDIT EVENT</h1>
-<EventEdit {data} />
+
+<!-- BACK BUTTON -->
+<button class="btn" on:click={goBack}>BACK</button>
+
+<EventEdit {data}></EventEdit>

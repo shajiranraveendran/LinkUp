@@ -6,7 +6,6 @@
 </script>
 
 <!-- HTML -->
-
 <!-- EVENT DETAIL -->
 <div class="event-detail">
     <img src={data.event.poster} alt={data.event.eventname} class="poster" />

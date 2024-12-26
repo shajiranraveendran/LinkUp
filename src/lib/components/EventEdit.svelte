@@ -1,19 +1,16 @@
 <!-- SCRIPT -->
 <script>
-    export let data;
+    let { data } = $props();
 </script>
 
 <!-- HTML -->
-<!-- BACK BUTTON -->
-<a href="/events/[event_id]" class="btn btn-primary" role="button">BACK</a><br /><br />
-
 <!-- EVENT DETAIL -->
 <div class="event-detail">
     <img src={data.event.poster} alt={data.event.eventname} class="poster" />
     <div class="form-container">
 
 
-        <form method="POST" action="?/update">
+        <form method="POST">
             <input name="id" type="hidden" value={data.event._id} />
 
             <div class="mb-3">
