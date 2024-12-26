@@ -22,13 +22,10 @@
                 <td>{person.email}</td>
                 <td>
                     <div class="action-btn">
+                        <a href={"/teilnehmer/" + person._id} class="btn">EDIT</a>
                         <form method="POST" action="?/delete">
                             <input type="hidden" name="id" value={person._id} />
-                            <button class="btn btn-danger">EDIT</button>
-                        </form>
-                        <form method="POST" action="?/delete">
-                            <input type="hidden" name="id" value={person._id} />
-                            <button class="btn btn-danger">DELETE</button>
+                            <button class="btn">DELETE</button>
                         </form>
                     </div>
                 </td>

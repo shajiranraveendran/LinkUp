@@ -12,12 +12,13 @@
 <!-- BACK BUTTON -->
 <a href="/teilnehmer" class="btn btn-primary" role="button">BACK</a><br /><br />
 
-<!-- TEILNEHMER FORM -->
-<TeilnehmerForm { form }></TeilnehmerForm>
-
 <!-- MESSAGE -->
 {#if form?.success}
     <div class="alert alert-success mt-3">
         Teilnehmer: {form.vorname} {form.nachname} erfolgreich erstellt!
     </div>
 {/if}
+
+<!-- TEILNEHMER FORM -->
+<TeilnehmerForm { form }></TeilnehmerForm>
+

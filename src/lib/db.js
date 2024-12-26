@@ -34,6 +34,27 @@ export async function getTeilnehmer() {
     return teilnehmer;
 }
 
+// GET PEROSN
+export async function getPerson(id) {
+    let person = null;
+    try {
+        const collection = db.collection("teilnehmer");
+        const query = { _id: new ObjectId(id) };
+        person = await collection.findOne(query);
+
+        if (!person) {
+            console.log("No event with id " + id);
+            // TODO: errorhandling
+        } else {
+            person._id = person._id.toString();
+        }
+    } catch (error) {
+        // TODO: errorhandling
+        console.log(error.message);
+    }
+    return person;
+}
+
 // CREATE TEILNEHMER
 export async function createTeilnehmer(person) {
     try {
