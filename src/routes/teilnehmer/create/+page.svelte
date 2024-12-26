@@ -15,7 +15,7 @@
 <!-- MESSAGE -->
 {#if form?.success}
     <div class="alert alert-success mt-3">
-        Teilnehmer: {form.vorname} {form.nachname} erfolgreich erstellt!
+        TEILNEHMER: {form.varname} {form.nachname} wurde erstellt!
     </div>
 {/if}
 

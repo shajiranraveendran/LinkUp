@@ -21,10 +21,21 @@ export const actions = {
             nachname: data.get('nachname'),
             email: data.get('email'),
         };
+        const vor = data.get('vorname');
+        const nach = data.get('nachname');
 
         // TEILNEHMER AKTUALISIEREN
         await updatePerson(person);
 
-        return { success: true };
+
+        // MESSAGE
+        try {
+            await deletePerson(person._id);
+            return { success: true, vorname: vor, nachname: nach };
+        } catch (error) {
+            console.error("Fehler beim Löschen des Events: ", error);
+            return { success: false };
+        }
+
     }
 };

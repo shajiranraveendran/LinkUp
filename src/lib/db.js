@@ -34,7 +34,7 @@ export async function getTeilnehmer() {
     return teilnehmer;
 }
 
-// GET PEROSN
+// GET PERSON
 export async function getPerson(id) {
     let person = null;
     try {
@@ -80,7 +80,7 @@ export async function updatePerson(person) {
         const result = await collection.updateOne(query, { $set: person });
 
         // CONSOLE LOG
-        console.log(`Teilnehmer: ${id} wurde aktualisiert.`);
+        console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updatePerson:", error);
     }

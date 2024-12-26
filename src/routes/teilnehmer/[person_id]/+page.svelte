@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script>
-    let { data } = $props();
+    let { data, form } = $props();
     
 </script>
 
@@ -12,9 +12,9 @@
 <a href="/teilnehmer" class="btn btn-primary" role="button">BACK</a><br /><br />
 
 <!-- MESSAGE -->
-{#if data.success}
-    <div class="alert alert-success mt-3">
-        {data.vorname} wurde erfolgreich aktualisiert!
+{#if form?.success}
+    <div class="alert alert-primary mt-3">
+        TEILNEHMER: {form.vorname} {form.nachname} wurde aktualisiert!
     </div>
 {/if}
 

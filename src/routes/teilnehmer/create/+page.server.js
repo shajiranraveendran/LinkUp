@@ -12,7 +12,7 @@ export const actions = {
 
         try {
             await createTeilnehmer(person);
-            return { success: true, vorname: person.vorname, nachname: person.nachname };
+            return { success: true, varname: person.vorname, nachname: person.nachname };
         } catch (error) {
             return { success: false };
         }

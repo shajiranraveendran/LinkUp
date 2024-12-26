@@ -41,7 +41,7 @@
 <!-- MESSAGE -->
 {#if data.success}
     <div class="alert alert-success mt-3">
-        {data.event.eventname} wurde erfolgreich aktualisiert!
+        EVENT: "{data.event.eventname}" wurde aktualisiert!
     </div>
 {/if}
 

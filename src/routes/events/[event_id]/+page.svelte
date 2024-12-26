@@ -1,15 +1,20 @@
 <!-- SCRIPT -->
 <script>
-    import EventDetail from "$lib/components/EventDetail.svelte";
-
-    let { data } = $props();
+    let { data, form} = $props();
 </script>
 
 <!-- HTML -->
 <h1>EVENT DETAIL</h1>
 
 <!-- BACK BUTTON -->
-<a href="/events" class="btn btn-primary" role="button">BACK</a><br /><br />
+<a href="/events" class="btn" role="button">BACK</a><br /><br />
+
+<!-- MESSAGE -->
+{#if form?.success}
+    <div class="alert alert-primary mt-3">
+        EVENT: "{form.eventname}" wurde aktualisiert!
+    </div>
+{/if}
 
 <div class="event-detail">
     <img src={data.event.poster} alt={data.event.eventname} class="poster" />
@@ -41,13 +46,6 @@
         </form>
     </div>
 </div>
-
-<!-- MESSAGE -->
-{#if data.success}
-    <div class="alert alert-success mt-3">
-        {data.event.eventname} wurde erfolgreich aktualisiert!
-    </div>
-{/if}
 
 
 <!-- STYLE -->
