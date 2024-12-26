@@ -52,7 +52,8 @@ table {
     width: 100%;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #cccccc2d;
@@ -79,7 +80,7 @@ tr:hover {
 }
 
 .card {
-    background-color:rgb(5, 32, 43);
+    background-color: rgb(5, 32, 43);
     color: #c3e4eefb;
     border-radius: 5px;
     width: 400px;
@@ -106,4 +107,20 @@ tr:hover {
 
 .title:hover {
     color: #fafafafb;
+}
+
+/* VIDEO */
+video {
+    right: 0;
+    bottom: 0;
+    min-width: 50%;
+    min-height: 100%;
+}
+
+.content {
+    bottom: 0;
+    background: rgb(5, 32, 43);
+    color: #f1f1f1;
+    width: 50%;
+    padding: 20px;
 }
