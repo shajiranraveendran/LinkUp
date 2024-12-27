@@ -18,6 +18,7 @@ export const actions = {
             adresse: data.get('adresse'),
         };
 
+        // MESSAGE
         try {
             await updateEvent(event);
             return { success: true, eventname: event.eventname };

@@ -10,6 +10,7 @@ export const actions = {
             email: data.get('email')
         };
 
+        // MESSAGE
         try {
             await createTeilnehmer(person);
             return { success: true, varname: person.vorname, nachname: person.nachname };

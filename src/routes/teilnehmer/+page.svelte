@@ -1,8 +1,9 @@
 <!-- SCRIPT -->
 <script>
     import TeilnehmerList from "$lib/components/TeilnehmerList.svelte";
-    
-    let { data, form} = $props();
+
+    export let data;
+    export let form;
 </script>
 
 
@@ -12,14 +13,12 @@
 <!-- TEILNEHMER ADD -->
 <a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
 
-
 <!-- MESSAGE -->
 {#if form?.success}
     <div class="alert alert-danger mt-3">
-        TEILNEHMER: {form.vorname} {form.nachname} wurde gelöscht!
+        TEILNEHMER: "{form.vorname} {form.nachname}" wurde gelöscht!
     </div>
 {/if}
-
 
 <!-- TEILNEHMER LIST -->
 <TeilnehmerList {data}></TeilnehmerList>

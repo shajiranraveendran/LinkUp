@@ -44,12 +44,10 @@ export async function getPerson(id) {
 
         if (!person) {
             console.log("No event with id " + id);
-            // TODO: errorhandling
         } else {
             person._id = person._id.toString();
         }
     } catch (error) {
-        // TODO: errorhandling
         console.log(error.message);
     }
     return person;
@@ -75,12 +73,15 @@ export async function updatePerson(person) {
     try {
         const id = person._id;
         delete person._id;
+        const vorname = person.vorname;
+        const nachname = person.nachname;
+
         const collection = db.collection("teilnehmer");
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: person });
 
         // CONSOLE LOG
-        console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde aktualisiert.`);
+        console.log(`Teilnehmer: ${vorname} ${nachname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updatePerson:", error);
     }
@@ -133,12 +134,10 @@ export async function getEvent(id) {
 
         if (!event) {
             console.log("No event with id " + id);
-            // TODO: errorhandling
         } else {
             event._id = event._id.toString();
         }
     } catch (error) {
-        // TODO: errorhandling
         console.log(error.message);
     }
     return event;
@@ -163,9 +162,10 @@ export async function createEvent(event) {
 // UPDATE EVENT
 export async function updateEvent(event) {
     try {
-        const eventname = event.eventname;
         const id = event._id;
         delete event._id;
+        const eventname = event.eventname;
+
         const collection = db.collection("events");
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: event });

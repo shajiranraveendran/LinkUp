@@ -1,6 +1,6 @@
 <!-- SCRIPT -->
 <script>
-    let {data, form} = $props();
+    export let data;
 
 </script>
 
@@ -26,6 +26,8 @@
                         <a href={"/teilnehmer/" + person._id} class="btn">EDIT</a>
                         <form method="POST" action="?/delete">
                             <input type="hidden" name="id" value={person._id} />
+                            <input type="hidden" name="vorname" value={person.vorname} />
+                            <input type="hidden" name="nachname" value={person.nachname} />
                             <button class="btn">DELETE</button>
                         </form>
                     </div>
