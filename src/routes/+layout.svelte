@@ -20,3 +20,7 @@
 <div>
     {@render children()}
 </div>
+
+<footer class="nav footer">
+    @2025 RAVEENDRAN SHAJIRAN - PROTOTYPING
+</footer>

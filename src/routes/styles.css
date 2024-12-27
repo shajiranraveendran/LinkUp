@@ -34,6 +34,8 @@ p {
 /* NAVIGATION */
 .nav {
     border: 1px solid #cccccc2d;
+    background-color: rgb(5, 32, 43);
+    border-radius: 5px;
 }
 
 .navbar {
@@ -50,6 +52,15 @@ p {
 
 .navfont:hover {
     color: #fafafafb;
+}
+
+
+/* FOOTER */
+.footer{
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+
 }
 
 
@@ -136,4 +147,5 @@ video{
     padding: 30px;
     text-align: center;
 }
+
 
