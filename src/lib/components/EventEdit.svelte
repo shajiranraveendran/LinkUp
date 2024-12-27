@@ -1,50 +1,40 @@
 <!-- SCRIPT -->
 <script>
-    let { data } = $props();
+    export let data;
+    export let form;
 </script>
 
-<!-- HTML -->
-<!-- EVENT DETAIL -->
+<!-- EVENT FORM -->
 <div class="event-detail">
     <img src={data.event.poster} alt={data.event.eventname} class="poster" />
     <div class="form-container">
-
-
-        <form method="POST">
+        <form method="POST" action="?/update">
             <input name="id" type="hidden" value={data.event._id} />
 
             <div class="mb-3">
                 <label class="form-label" for="">EVENTNAME</label>
-                <input class="form-control" type="text" name="eventname" id="" value={data.event.eventname}/>
+                <input class="form-control" type="text" name="eventname" id="" value={data.event.eventname} />
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="">BESCHREIBUNG</label>
-                <input class="form-control" type="text" name="beschreibung" id="" value={data.event.beschreibung}/>
+                <textarea class="form-control" name="beschreibung" id="" rows="10">{data.event.beschreibung}</textarea>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="">DATUM</label>
-                <input class="form-control" type="" name="datum" id="" value={data.event.datum}/>
+                <input class="form-control" type="text" name="datum" id="" value={data.event.datum} />
             </div>
 
             <div class="mb-3">
-                <label class="form-label " for="">ADRESSE</label>
-                <input class="form-control" type="text" name="adresse" id="" value={data.event.adresse}/>
+                <label class="form-label" for="">ADRESSE</label>
+                <input class="form-control" type="text" name="adresse" id="" value={data.event.adresse} />
             </div>
 
             <button class="btn btn-primary">UPDATE EVENT</button>
         </form>
     </div>
 </div>
-
-<!-- MESSAGE -->
-{#if data.success}
-    <div class="alert alert-success mt-3">
-        EVENT: "{data.event.eventname}" wurde aktualisiert!
-    </div>
-{/if}
-
 
 <!-- STYLE -->
 <style>

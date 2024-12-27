@@ -3,7 +3,6 @@
     export let data;
 </script>
 
-<!-- HTML -->
 <!-- EVENT CARD -->
 <div class="events-container">
     {#each data.events as event}

@@ -4,7 +4,7 @@
 
 </script>
 
-<!-- HTML -->
+
 <!-- TEILNEHMER LIST -->
 <table>
     <thead>
@@ -37,6 +37,8 @@
     </tbody>
 </table>
 
+
+<!-- STYLE -->
 <style>
     .action-btn {
         display: flex;

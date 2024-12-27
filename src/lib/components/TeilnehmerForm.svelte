@@ -1,4 +1,3 @@
-<!-- HTML -->
 <!-- FORM -->
 <form method="POST" action="?/create">
     <div class="mb-3">
