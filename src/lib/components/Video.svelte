@@ -40,7 +40,7 @@
         {#each slides as slide, index}
             <div
                 class="carousel-item {index === 0 ? 'active' : ''}"
-                data-bs-interval="4500"
+                data-bs-interval="3500"
             >
                 <video class="d-block w-100" autoplay muted loop>
                     <source src={slide.src} type="video/mp4" />
@@ -87,8 +87,6 @@
     .carousel-caption {
         position: absolute;
         bottom: 20px;
-        left: 20px;
-        right: 20px;
         color: white;
     }
 </style>
