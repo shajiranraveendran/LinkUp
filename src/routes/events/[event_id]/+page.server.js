@@ -35,8 +35,8 @@ export const actions = {
         const teilnehmerId = data.get("teilnehmerId");
 
         try {
-            await addTeilnehmerToEvent(params.event_id, teilnehmerId);
-            return { success: true };
+            const teilnehmer = await addTeilnehmerToEvent(params.event_id, teilnehmerId);
+            return { success: true, action: "addTeilnehmer", vorname: teilnehmer.vorname, nachname: teilnehmer.nachname };
         } catch {
             return { success: false };
         }
@@ -48,10 +48,10 @@ export const actions = {
         const teilnehmerId = data.get("teilnehmerId");
 
         try {
-            await removeTeilnehmerFromEvent(params.event_id, teilnehmerId);
-            return { success: true };
+            const teilnehmer = await removeTeilnehmerFromEvent(params.event_id, teilnehmerId);
+            return { success: true, action: "removeTeilnehmer", vorname: teilnehmer.vorname, nachname: teilnehmer.nachname };
         } catch {
             return { success: false };
         }
-    },
-};
+    }
+}

@@ -18,6 +18,8 @@ export async function getTeilnehmer() {
         teilnehmer.forEach((person) => {
             person._id = person._id.toString();
         });
+
+    // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getTeilnehmer:", error);
         throw error;
@@ -33,6 +35,7 @@ export async function getPerson(id) {
         const query = { _id: new ObjectId(id) };
         person = await collection.findOne(query);
 
+        // CONSOLE LOG
         if (!person) {
             console.log("No person with id " + id);
         } else {
@@ -50,6 +53,7 @@ export async function createTeilnehmer(person) {
         const collection = db.collection("teilnehmer");
         const result = await collection.insertOne(person);
 
+        // CONSOLE LOG
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde erstellt.`);
         return result.insertedId.toString();
     } catch (error) {
@@ -68,6 +72,7 @@ export async function updatePerson(person) {
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: person });
 
+        // CONSOLE LOG
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updatePerson:", error);
@@ -82,6 +87,7 @@ export async function deletePerson(id) {
         const person = await collection.findOne(query);
         await collection.deleteOne(query);
 
+        // CONSOLE LOG
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde gelöscht.`);
     } catch (error) {
         console.error("Fehler in deletePerson:", error);
@@ -100,6 +106,8 @@ export async function getEvents() {
         events.forEach((event) => {
             event._id = event._id.toString();
         });
+
+    // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getEvents:", error);
         throw error;
@@ -115,6 +123,7 @@ export async function getEvent(id) {
         const query = { _id: new ObjectId(id) };
         event = await collection.findOne(query);
 
+        // CONSOLE LOG
         if (!event) {
             console.log("No event with id " + id);
         } else {
@@ -133,6 +142,7 @@ export async function createEvent(event) {
         const collection = db.collection("events");
         const result = await collection.insertOne(event);
 
+        // CONSOLE LOG
         console.log(`Event: ${event.eventname} wurde erstellt.`);
         return result.insertedId.toString();
     } catch (error) {
@@ -151,6 +161,7 @@ export async function updateEvent(event) {
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: event });
 
+        // CONSOLE LOG
         console.log(`Event: ${event.eventname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updateEvent:", error);
@@ -165,6 +176,7 @@ export async function deleteEvent(id) {
         const event = await collection.findOne(query);
         await collection.deleteOne(query);
 
+        // CONSOLE LOG
         console.log(`Event: ${event.eventname} wurde gelöscht.`);
     } catch (error) {
         console.error("Fehler in deleteEvent:", error);
@@ -186,17 +198,21 @@ export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
             throw new Error(`Teilnehmer mit ID ${teilnehmerId} nicht gefunden.`);
         }
 
+        // CREATE TEILNEHMER OBJECT
         const teilnehmerObj = {
             _id: teilnehmer._id.toString(),
             vorname: teilnehmer.vorname,
             nachname: teilnehmer.nachname,
         };
 
+        // ADD TEILNEHMER TO EVENT
         const query = { _id: new ObjectId(eventId) };
         const update = { $push: { teilnehmer: teilnehmerObj } };
         await collectionEvents.updateOne(query, update);
 
-        console.log(`Teilnehmer ${teilnehmer.vorname} ${teilnehmer.nachname} wurde zum Event hinzugefügt.`);
+        // CONSOLE LOG
+        console.log(`Teilnehmer: ${teilnehmer.vorname} ${teilnehmer.nachname} wurde zum Event hinzugefügt.`);
+        return teilnehmer;
     } catch (error) {
         console.error("Fehler beim Hinzufügen des Teilnehmers zum Event:", error);
     }
@@ -207,11 +223,25 @@ export async function removeTeilnehmerFromEvent(eventId, teilnehmerId) {
     try {
         const collectionEvents = db.collection("events");
 
+        // FIND THE EVENT AND TEILNEHMER
+        const event = await collectionEvents.findOne({ _id: new ObjectId(eventId) });
+        if (!event) {
+            throw new Error(`Event mit ID ${eventId} nicht gefunden.`);
+        }
+
+        const teilnehmer = event.teilnehmer.find(t => t._id === teilnehmerId);
+        if (!teilnehmer) {
+            throw new Error(`Teilnehmer mit ID ${teilnehmerId} ist nicht im Event.`);
+        }
+
+        // REMOVE TEILNEHMER FROM EVENT
         const query = { _id: new ObjectId(eventId) };
         const update = { $pull: { teilnehmer: { _id: teilnehmerId } } };
         await collectionEvents.updateOne(query, update);
 
-        console.log(`Teilnehmer mit ID ${teilnehmerId} wurde aus dem Event entfernt.`);
+        // CONSOLE LOG
+        console.log(`Teilnehmer: ${teilnehmer.vorname} ${teilnehmer.nachname} wurde aus dem Event entfernt.`);
+        return teilnehmer;
     } catch (error) {
         console.error("Fehler beim Entfernen des Teilnehmers aus dem Event:", error);
     }

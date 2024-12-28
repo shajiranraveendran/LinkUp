@@ -11,10 +11,24 @@
 <!-- BACK BUTTON -->
 <a href="/events" class="btn" role="button">BACK</a><br /><br />
 
-<!-- Erfolgsnachricht für Event-Update -->
-{#if form?.success}
+<!-- MESSAGE: EVENT UPDATE -->
+{#if form?.success && form?.eventname}
     <div class="alert alert-primary mt-3">
-        Event: "{form?.eventname}" wurde erfolgreich aktualisiert!
+        Event: "{form.eventname}" wurde aktualisiert!
+    </div>
+{/if}
+
+<!-- MESSAGE: TEILNEHMER ADD -->
+{#if form?.success && form?.action === "addTeilnehmer"}
+    <div class="alert alert-success mt-3">
+        Teilnehmer: "{form.vorname} {form.nachname}" wurde zum Event hinzugefügt!
+    </div>
+{/if}
+
+<!-- MESSAGE: TEILNEHMER REMOVE -->
+{#if form?.success && form?.action === "removeTeilnehmer"}
+    <div class="alert alert-danger mt-3">
+        Teilnehmer: "{form.vorname} {form.nachname}" wurde aus dem Event entfernt!
     </div>
 {/if}
 
