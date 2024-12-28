@@ -1,8 +1,8 @@
 import { getEvent, getTeilnehmer, addTeilnehmerToEvent, updateEvent } from "$lib/db.js";
 
 export async function load({ params }) {
-    const event = await getEvent(params.event_id);
-    const teilnehmer = await getTeilnehmer();
+    const event = await getEvent(params.event_id); // Lädt das Event inklusive der Teilnehmerliste
+    const teilnehmer = await getTeilnehmer(); // Lädt alle verfügbaren Teilnehmer für die Dropdown-Auswahl
     return {
         event,
         teilnehmer,
