@@ -22,4 +22,4 @@
 
 
 <!-- TEILNEHMER LIST -->
-<TeilnehmerList {data}></TeilnehmerList>
+<TeilnehmerList { data } />

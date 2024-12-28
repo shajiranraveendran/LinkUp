@@ -10,6 +10,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
+    // EVENT AKTUALISIEREN
     update: async ({ request }) => {
         const data = await request.formData();
         const event = {
@@ -28,6 +29,7 @@ export const actions = {
         }
     },
 
+    // TEILNEHMER HINZUFÜGEN
     addTeilnehmer: async ({ request, params }) => {
         const data = await request.formData();
         const teilnehmerId = data.get("teilnehmerId");
@@ -40,7 +42,7 @@ export const actions = {
         }
     },
 
-
+    // TEILNEHMER ENTFERNEN
     removeTeilnehmer: async ({ request, params }) => {
         const data = await request.formData();
         const teilnehmerId = data.get("teilnehmerId");

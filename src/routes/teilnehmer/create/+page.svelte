@@ -20,5 +20,5 @@
 {/if}
 
 <!-- TEILNEHMER FORM -->
-<TeilnehmerForm { form }></TeilnehmerForm>
+<TeilnehmerForm { form } />
 

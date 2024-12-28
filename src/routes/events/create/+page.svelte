@@ -20,6 +20,6 @@
 {/if}
 
 <!-- TEILNEHMER FORM -->
-<br /><br /><EventForm { form }></EventForm>
+<br /><br /><EventForm { form } />
 
 

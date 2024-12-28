@@ -171,7 +171,11 @@ export async function deleteEvent(id) {
     }
 }
 
-// Add Teilnehmer to Event with full details
+
+
+// TEILNEHMER ZU EVENTS //
+
+// ADD TEILNEHMER TO EVENT
 export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
     try {
         const collectionEvents = db.collection("events");
@@ -198,13 +202,13 @@ export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
     }
 }
 
-// Remove Teilnehmer from Event
+// REMOVE TEILNEHMER FROM EVENT
 export async function removeTeilnehmerFromEvent(eventId, teilnehmerId) {
     try {
         const collectionEvents = db.collection("events");
 
         const query = { _id: new ObjectId(eventId) };
-        const update = { $pull: { teilnehmer: { _id: teilnehmerId } } }; // Teilnehmer anhand der ID entfernen
+        const update = { $pull: { teilnehmer: { _id: teilnehmerId } } };
         await collectionEvents.updateOne(query, update);
 
         console.log(`Teilnehmer mit ID ${teilnehmerId} wurde aus dem Event entfernt.`);
