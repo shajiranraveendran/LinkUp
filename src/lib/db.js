@@ -6,13 +6,6 @@ const client = new MongoClient(DB_URI);
 await client.connect();
 const db = client.db("LinkUpDB");
 
-
-
-//////////////////////////////////////////
-// LINKUP
-//////////////////////////////////////////
-
-
 // TEILNEHMER //
 
 // GET TEILNEHMER
@@ -25,8 +18,6 @@ export async function getTeilnehmer() {
         teilnehmer.forEach((person) => {
             person._id = person._id.toString();
         });
-
-        // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getTeilnehmer:", error);
         throw error;
@@ -43,7 +34,7 @@ export async function getPerson(id) {
         person = await collection.findOne(query);
 
         if (!person) {
-            console.log("No event with id " + id);
+            console.log("No person with id " + id);
         } else {
             person._id = person._id.toString();
         }
@@ -59,7 +50,6 @@ export async function createTeilnehmer(person) {
         const collection = db.collection("teilnehmer");
         const result = await collection.insertOne(person);
 
-        // CONSOLE LOG
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde erstellt.`);
         return result.insertedId.toString();
     } catch (error) {
@@ -73,15 +63,12 @@ export async function updatePerson(person) {
     try {
         const id = person._id;
         delete person._id;
-        const vorname = person.vorname;
-        const nachname = person.nachname;
 
         const collection = db.collection("teilnehmer");
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: person });
 
-        // CONSOLE LOG
-        console.log(`Teilnehmer: ${vorname} ${nachname} wurde aktualisiert.`);
+        console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updatePerson:", error);
     }
@@ -95,13 +82,11 @@ export async function deletePerson(id) {
         const person = await collection.findOne(query);
         await collection.deleteOne(query);
 
-        // CONSOLE LOG
         console.log(`Teilnehmer: ${person.vorname} ${person.nachname} wurde gelöscht.`);
     } catch (error) {
         console.error("Fehler in deletePerson:", error);
     }
 }
-
 
 // EVENTS //
 
@@ -115,8 +100,6 @@ export async function getEvents() {
         events.forEach((event) => {
             event._id = event._id.toString();
         });
-
-        // CONSOLE LOG
     } catch (error) {
         console.error("Fehler in getEvents:", error);
         throw error;
@@ -150,7 +133,6 @@ export async function createEvent(event) {
         const collection = db.collection("events");
         const result = await collection.insertOne(event);
 
-        // CONSOLE LOG
         console.log(`Event: ${event.eventname} wurde erstellt.`);
         return result.insertedId.toString();
     } catch (error) {
@@ -164,14 +146,12 @@ export async function updateEvent(event) {
     try {
         const id = event._id;
         delete event._id;
-        const eventname = event.eventname;
 
         const collection = db.collection("events");
         const query = { _id: new ObjectId(id) };
         const result = await collection.updateOne(query, { $set: event });
 
-        // CONSOLE LOG
-        console.log(`Event: ${eventname} wurde aktualisiert.`);
+        console.log(`Event: ${event.eventname} wurde aktualisiert.`);
     } catch (error) {
         console.error("Fehler in updateEvent:", error);
     }
@@ -185,22 +165,34 @@ export async function deleteEvent(id) {
         const event = await collection.findOne(query);
         await collection.deleteOne(query);
 
-        // CONSOLE LOG
         console.log(`Event: ${event.eventname} wurde gelöscht.`);
     } catch (error) {
         console.error("Fehler in deleteEvent:", error);
     }
 }
 
-// Update Event mit hinzugefügtem Teilnehmer
+// Add Teilnehmer to Event with full details
 export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
     try {
-        const collection = db.collection("events");
-        const query = { _id: new ObjectId(eventId) };
-        const update = { $push: { teilnehmer: new ObjectId(teilnehmerId) } };
-        await collection.updateOne(query, update);
+        const collectionEvents = db.collection("events");
+        const collectionTeilnehmer = db.collection("teilnehmer");
 
-        console.log(`Teilnehmer wurde zum Event hinzugefügt.`);
+        const teilnehmer = await collectionTeilnehmer.findOne({ _id: new ObjectId(teilnehmerId) });
+        if (!teilnehmer) {
+            throw new Error(`Teilnehmer mit ID ${teilnehmerId} nicht gefunden.`);
+        }
+
+        const teilnehmerObj = {
+            _id: teilnehmer._id.toString(),
+            vorname: teilnehmer.vorname,
+            nachname: teilnehmer.nachname,
+        };
+
+        const query = { _id: new ObjectId(eventId) };
+        const update = { $push: { teilnehmer: teilnehmerObj } };
+        await collectionEvents.updateOne(query, update);
+
+        console.log(`Teilnehmer ${teilnehmer.vorname} ${teilnehmer.nachname} wurde zum Event hinzugefügt.`);
     } catch (error) {
         console.error("Fehler beim Hinzufügen des Teilnehmers zum Event:", error);
     }

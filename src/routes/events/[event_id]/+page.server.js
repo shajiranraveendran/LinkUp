@@ -1,25 +1,23 @@
-import { getEvent, getTeilnehmer, updateEvent } from "$lib/db.js";
+import { getEvent, getTeilnehmer, addTeilnehmerToEvent, updateEvent } from "$lib/db.js";
 
 export async function load({ params }) {
     const event = await getEvent(params.event_id);
-    // Lade alle Teilnehmer
     const teilnehmer = await getTeilnehmer();
     return {
         event,
-        teilnehmer,  // Alle Teilnehmer für die Auswahl im Formular
+        teilnehmer,
     };
 }
 
 export const actions = {
-    // Event aktualisieren
     update: async ({ request }) => {
         const data = await request.formData();
         const event = {
-            _id: data.get('id'),
-            eventname: data.get('eventname'),
-            beschreibung: data.get('beschreibung'),
-            datum: data.get('datum'),
-            adresse: data.get('adresse'),
+            _id: data.get("id"),
+            eventname: data.get("eventname"),
+            beschreibung: data.get("beschreibung"),
+            datum: data.get("datum"),
+            adresse: data.get("adresse"),
         };
 
         try {
@@ -30,23 +28,15 @@ export const actions = {
         }
     },
 
-    // Teilnehmer hinzufügen
     addTeilnehmer: async ({ request, params }) => {
         const data = await request.formData();
-        const teilnehmerId = data.get('teilnehmerId');
-        
-        try {
-            // Teilnehmer zum Event hinzufügen
-            const event = await getEvent(params.event_id);
-            if (!event.teilnehmer) {
-                event.teilnehmer = [];
-            }
-            event.teilnehmer.push(teilnehmerId);
+        const teilnehmerId = data.get("teilnehmerId");
 
-            await updateEvent(event); // Event mit hinzugefügtem Teilnehmer aktualisieren
+        try {
+            await addTeilnehmerToEvent(params.event_id, teilnehmerId);
             return { success: true };
         } catch {
             return { success: false };
         }
-    }
+    },
 };
