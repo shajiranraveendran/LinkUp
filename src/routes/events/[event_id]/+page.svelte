@@ -17,14 +17,20 @@
 {/if}
 
 <!-- EVENT EDIT -->
-<EventEdit {data} {form} /><br />
+<EventEdit {data} {form} /><br /><br />
 
 <!-- Teilnehmer Hinzufügen -->
 <h2>TEILNEHMER HINZUFÜGEN</h2>
-<form method="POST" action="?/addTeilnehmer" class="d-flex align-items-center gap-2">
+<form
+    method="POST"
+    action="?/addTeilnehmer"
+    class="d-flex align-items-center gap-2"
+>
     <select name="teilnehmerId" id="teilnehmer" class="form-control w-50">
         {#each data.teilnehmer as teilnehmer}
-            <option value={teilnehmer._id}>{teilnehmer.vorname} {teilnehmer.nachname}</option>
+            <option value={teilnehmer._id}
+                >{teilnehmer.vorname} {teilnehmer.nachname}</option
+            >
         {/each}
     </select>
     <button class="btn btn-primary">ADD TEILNEHMER</button>
@@ -32,12 +38,14 @@
 
 <!-- Tabelle der Teilnehmer im Event -->
 {#if data.event.teilnehmer?.length > 0}
-    <table class="table table-striped mt-3">
+    <br /><br />
+    <table>
         <thead>
             <tr>
                 <th>Vorname</th>
                 <th>Nachname</th>
-                <th>Teilnehmer-ID</th> <!-- Optional: Teilnehmer-ID anzeigen -->
+                <th>Teilnehmer-ID</th>
+                <!-- Optional: Teilnehmer-ID anzeigen -->
             </tr>
         </thead>
         <tbody>
@@ -45,7 +53,8 @@
                 <tr>
                     <td>{teilnehmer.vorname}</td>
                     <td>{teilnehmer.nachname}</td>
-                    <td>{teilnehmer._id}</td> <!-- Optional: Teilnehmer-ID anzeigen -->
+                    <td>{teilnehmer._id}</td>
+                    <!-- Optional: Teilnehmer-ID anzeigen -->
                 </tr>
             {/each}
         </tbody>
