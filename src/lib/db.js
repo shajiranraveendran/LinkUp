@@ -197,3 +197,18 @@ export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
         console.error("Fehler beim Hinzufügen des Teilnehmers zum Event:", error);
     }
 }
+
+// Remove Teilnehmer from Event
+export async function removeTeilnehmerFromEvent(eventId, teilnehmerId) {
+    try {
+        const collectionEvents = db.collection("events");
+
+        const query = { _id: new ObjectId(eventId) };
+        const update = { $pull: { teilnehmer: { _id: teilnehmerId } } }; // Teilnehmer anhand der ID entfernen
+        await collectionEvents.updateOne(query, update);
+
+        console.log(`Teilnehmer mit ID ${teilnehmerId} wurde aus dem Event entfernt.`);
+    } catch (error) {
+        console.error("Fehler beim Entfernen des Teilnehmers aus dem Event:", error);
+    }
+}

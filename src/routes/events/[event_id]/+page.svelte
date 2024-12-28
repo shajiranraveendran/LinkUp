@@ -42,10 +42,10 @@
     <table>
         <thead>
             <tr>
-                <th>Vorname</th>
-                <th>Nachname</th>
-                <th>Teilnehmer-ID</th>
-                <!-- Optional: Teilnehmer-ID anzeigen -->
+                <th>VORNAME</th>
+                <th>NACHNAME</th>
+                <th>TEILNEHMER-ID</th>
+                <th>ACTION</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +54,17 @@
                     <td>{teilnehmer.vorname}</td>
                     <td>{teilnehmer.nachname}</td>
                     <td>{teilnehmer._id}</td>
-                    <!-- Optional: Teilnehmer-ID anzeigen -->
+                    <td>
+                        <!-- Entfernen-Button -->
+                        <form method="POST" action="?/removeTeilnehmer">
+                            <input
+                                type="hidden"
+                                name="teilnehmerId"
+                                value={teilnehmer._id}
+                            />
+                            <button class="btn btn-danger">REMOVE</button>
+                        </form>
+                    </td>
                 </tr>
             {/each}
         </tbody>
