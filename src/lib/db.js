@@ -192,16 +192,3 @@ export async function deleteEvent(id) {
     }
 }
 
-// Update Event mit hinzugefügtem Teilnehmer
-export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
-    try {
-        const collection = db.collection("events");
-        const query = { _id: new ObjectId(eventId) };
-        const update = { $push: { teilnehmer: new ObjectId(teilnehmerId) } };
-        await collection.updateOne(query, update);
-
-        console.log(`Teilnehmer wurde zum Event hinzugefügt.`);
-    } catch (error) {
-        console.error("Fehler beim Hinzufügen des Teilnehmers zum Event:", error);
-    }
-}
