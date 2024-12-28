@@ -21,19 +21,16 @@
 
 <!-- Teilnehmer Hinzufügen -->
 <h2>TEILNEHMER HINZUFÜGEN</h2>
-<form method="POST" action="?/addTeilnehmer">
-    <label for="teilnehmer">CHOOSE TEILNEHMER</label><br />
-    <select name="teilnehmerId" id="teilnehmer" class="form-control">
+<form method="POST" action="?/addTeilnehmer" class="d-flex align-items-center gap-2">
+    <select name="teilnehmerId" id="teilnehmer" class="form-control w-50">
         {#each data.teilnehmer as teilnehmer}
             <option value={teilnehmer._id}>{teilnehmer.vorname} {teilnehmer.nachname}</option>
         {/each}
-    </select><br />
-    <button class="btn btn-primary mt-2">ADD TEILNEHMER</button>
+    </select>
+    <button class="btn btn-primary">ADD TEILNEHMER</button>
 </form>
 
-<br />
 <!-- Tabelle der Teilnehmer im Event -->
-<h2>TEILNEHMER IM EVENT</h2>
 {#if data.event.teilnehmer?.length > 0}
     <table class="table table-striped mt-3">
         <thead>
@@ -54,5 +51,6 @@
         </tbody>
     </table>
 {:else}
+    <br />
     <p>Es wurden noch keine Teilnehmer hinzugefügt.</p>
 {/if}
