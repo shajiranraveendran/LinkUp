@@ -7,7 +7,7 @@
 
 <!-- EVENT DETAIL -->
 <div class="event-detail">
-    <img src={data.event.poster} alt={data.event.eventname} class="poster" />
+    <img src={data.event.poster} alt={data.event.eventname} class="detail-poster" />
     <div class="form-container">
         <input name="id" type="hidden" value={data.event._id} />
         <div>

@@ -103,7 +103,7 @@ tr:hover {
     background-color: rgb(5, 32, 43);
     color: #c3e4eefb;
     border-radius: 5px;
-    width: 400px;
+    width: 18%;
 }
 
 .card-poster {
@@ -111,8 +111,7 @@ tr:hover {
 }
 
 .poster {
-    width: 400px;
-    height: 230px;
+    width: 100%;
     border-radius: 5px;
 }
 
@@ -131,7 +130,7 @@ tr:hover {
 
 /* VIDEO */
 .carousel {
-    width: 1200px;
+    width: 100%;
     padding: 40px;
     margin: 0 auto;
 }

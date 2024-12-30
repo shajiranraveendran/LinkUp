@@ -5,7 +5,7 @@
 
 <!-- EVENT FORM -->
 <div class="event-detail">
-    <img src={data.event.poster} alt={data.event.eventname} class="poster" />
+    <img src={data.event.poster} alt={data.event.eventname} class="detail-poster" />
     <div class="form-container">
         <form method="POST" action="?/update">
             <input name="id" type="hidden" value={data.event._id} />
@@ -43,6 +43,13 @@
     }
 
     .form-control {
-        width: 500%;
+        width: 320%;
+    }
+
+    .detail-poster {
+        width: 300px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
     }
 </style>
