@@ -20,7 +20,7 @@
             <tr>
                 <td>{person.vorname}</td>
                 <td>{person.nachname}</td>
-                <td>{person.email}</td>
+                <td><a href="mailto:{person.email}" class="mail">{person.email}</a></td>
                 <td>
                     <div class="action-btn">
                         <a href={"/teilnehmer/" + person._id} class="btn">EDIT</a>

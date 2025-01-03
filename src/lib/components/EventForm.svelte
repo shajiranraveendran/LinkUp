@@ -10,7 +10,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">DATUM</label>
-        <input name="datum" class="form-control" type="text" required />
+        <input name="datum" class="form-control" type="date" required />
     </div>
     <div class="mb-3">
         <label for="" class="form-label">ADRESSE</label>

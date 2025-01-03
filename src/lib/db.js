@@ -203,6 +203,7 @@ export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
             _id: teilnehmer._id.toString(),
             vorname: teilnehmer.vorname,
             nachname: teilnehmer.nachname,
+            email: teilnehmer.email,
         };
 
         // ADD TEILNEHMER TO EVENT

@@ -30,6 +30,10 @@ p {
     background-color: rgb(0, 0, 0);
 }
 
+.mail {
+    color: rgb(61, 115, 136);
+}
+
 
 /* NAVIGATION */
 .nav {
