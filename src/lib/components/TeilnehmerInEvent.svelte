@@ -37,5 +37,7 @@
     </table>
 {:else}
     <br />
-    <p>Es wurden noch keine Teilnehmer hinzugefügt.</p>
+    <div class="alert alert-primary mt-3">
+        <i>ES WURDEN NOCH KEINE TEILNEHMER HINZUGEFÜGT.</i>
+    </div>
 {/if}
