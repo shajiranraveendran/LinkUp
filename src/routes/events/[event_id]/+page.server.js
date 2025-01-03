@@ -1,8 +1,9 @@
-import { getEvent, getTeilnehmer, addTeilnehmerToEvent, removeTeilnehmerFromEvent, updateEvent } from "$lib/db.js";
+import { getEvent, getTeilnehmer, addTeilnehmerToEvent, removeTeilnehmerFromEvent, updateEvent, deleteEvent } from "$lib/db.js";
+import { redirect } from "@sveltejs/kit";
 
 export async function load({ params }) {
-    const event = await getEvent(params.event_id); // Lädt das Event inklusive der Teilnehmerliste
-    const teilnehmer = await getTeilnehmer(); // Lädt alle verfügbaren Teilnehmer für die Dropdown-Auswahl
+    const event = await getEvent(params.event_id); // EVENT + TEILNEHMER LADEN
+    const teilnehmer = await getTeilnehmer(); // ALLE TEILNEHMER LADEN (DROPDOWN)
     return {
         event,
         teilnehmer,
@@ -29,6 +30,18 @@ export const actions = {
         }
     },
 
+    // EVENT LÖSCHEN
+    delete: async ({ request }) => {
+        const data = await request.formData();
+        const eventId = data.get("id");
+        const eventName = data.get("eventname");
+    
+        await deleteEvent(eventId);
+        throw redirect(303, "/events", {success: true, eventname: eventName});
+
+    },
+    
+
     // TEILNEHMER HINZUFÜGEN
     addTeilnehmer: async ({ request, params }) => {
         const data = await request.formData();
@@ -53,5 +66,5 @@ export const actions = {
         } catch {
             return { success: false };
         }
-    }
-}
+    },
+};

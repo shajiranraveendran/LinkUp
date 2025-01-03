@@ -13,27 +13,45 @@
             </div>
 
             <div class="card-text">
-                    <a href={"/events/" + event._id} class="title">{event.eventname}</a><br />
+                <a href={"/events/" + event._id} class="title">{event.eventname}</a><br />
                 {event.datum}<br />
                 {event.adresse}
             </div>
 
-
-            <form method="POST" action="?/delete">
+            <!-- DELETE BUTTON -->
+            <form method="POST" action="?/delete" class="delete-form">
                 <input type="hidden" name="id" value={event._id} />
                 <input type="hidden" name="eventname" value={event.eventname} />
                 <button class="btn btn-danger">DELETE</button>
             </form>
+
         </div>
     {/each}
 </div>
 
-
 <!-- STYLE -->
 <style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .card-text {
+        flex-grow: 1;
+    }
+
+    .delete-form {
+        margin-top: auto;
+        padding: 0;
+    }
+
     button {
-        align-items: center;
-        background-color: turquoise;
-        
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
     }
 </style>
