@@ -1,6 +1,7 @@
 <!-- SCRIPT -->
 <script>
-  import Video from "$lib/components/Video.svelte";
+  import ImageText from "$lib/components/ImageText.svelte";
+import Video from "$lib/components/Video.svelte";
   import Page from "./events/+page.svelte";
 </script>
 
@@ -16,6 +17,8 @@
 
 <!-- VIDEO -->
 <Video />
+
+<ImageText />
 
 <!-- STYLE -->
 <style>

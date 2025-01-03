@@ -1,6 +1,7 @@
 <!-- SCRIPT -->
 <script>
     import EventCard from "$lib/components/EventCard.svelte";
+    import ImageText from "$lib/components/ImageText.svelte";
 
     export let data;
     export let form;
@@ -21,4 +22,6 @@
 {/if}
 
 <!-- EVENT LIST -->
-<br /><br /><EventCard {data} />
+<br /><br /><EventCard {data} /><br /><br />
+
+<ImageText />

@@ -1,7 +1,9 @@
 <script>
     import EventEdit from "$lib/components/EventEdit.svelte";
+    import ImageText from "$lib/components/ImageText.svelte";
     import TeilnehmerInEvent from "$lib/components/TeilnehmerInEvent.svelte";
     import TeilnehmerToEvent from "$lib/components/TeilnehmerToEvent.svelte";
+    import Video from "$lib/components/Video.svelte";
 
     let { data, form } = $props();
 </script>
@@ -33,7 +35,11 @@
 {/if}
 
 <!-- EVENT EDIT -->
-<EventEdit {data} {form} /><br /><br />
+<EventEdit {data} {form} /><br /><br /><br /><br />
+
+<ImageText {data} />
+
+<hr style="border: 1px solid rgb(0,0,0); width: 100%; margin: 20px auto;"><br /><br />
 
 <!-- TEILNEHMER ZUM EVENT HINZUFÜGEN -->
 <TeilnehmerToEvent {data} />
