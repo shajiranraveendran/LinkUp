@@ -1,7 +1,6 @@
 <!-- SCRIPT -->
 <script>
     import { fly } from "svelte/transition";
-    import "./styles.css";
     let { children } = $props();
 </script>
 
