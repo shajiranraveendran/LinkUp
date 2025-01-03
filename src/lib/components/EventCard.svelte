@@ -27,3 +27,13 @@
         </div>
     {/each}
 </div>
+
+
+<!-- STYLE -->
+<style>
+    button {
+        align-items: center;
+        background-color: turquoise;
+        
+    }
+</style>

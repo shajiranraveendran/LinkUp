@@ -31,6 +31,7 @@
             </div>
 
             <button class="btn btn-primary">UPDATE EVENT</button>
+            <button class="btn btn-primary">DELETE EVENT</button>
         </form>
     </div>
 </div>
