@@ -102,4 +102,12 @@
         margin-right: 20px;
         margin-bottom: 20px;
     }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
 </style>
