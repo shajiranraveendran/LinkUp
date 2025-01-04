@@ -5,7 +5,7 @@ body {
     font-family: Andale Mono, monospace;
     padding: 30px;
     width: 90%;
-    margin: 0 auto;
+    margin: auto;
 }
 
 h1 {
@@ -44,14 +44,14 @@ p {
 
 .navbar {
     display: flex;
-    margin: 0 auto;
+    margin: auto;
     ;
 }
 
 .navfont {
     color: rgb(61, 115, 136);
     transition: color 0.3s ease;
-    margin: 0 15px;
+    margin: 15px;
     font-size: 25px;
 }
 
@@ -72,7 +72,7 @@ p {
 /* TABLE */
 table {
     border-collapse: collapse;
-    margin: 0 auto;
+    margin: auto;
     width: 100%;
 }
 
@@ -136,7 +136,7 @@ tr:hover {
 .carousel {
     width: 80%;
     padding: 40px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 video{

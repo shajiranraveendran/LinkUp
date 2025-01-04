@@ -29,10 +29,10 @@
 </footer>
 
 <!-- STYLE -->
- <style>
+<style>
     .logo {
         height: 50px;
         margin: 10px 10px;
         position: absolute;
     }
- </style>
+</style>

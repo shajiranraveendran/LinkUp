@@ -1,8 +1,16 @@
 <script>
     export let data;
 
+    let searchQuery = '';
     let activeSort = null;
     let isAscending = true;
+
+    // EVENTS FILTERN
+    function searchByEvents() {
+        return data.events.filter(event =>
+            `${event.eventname} ${event.adresse}`.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }
 
     // SORTIEREN NACH DATUM
     function sortByDate() {
@@ -35,8 +43,12 @@
     }
 </script>
 
-<!-- FILTER BUTTONS -->
+<!-- FILTER UND SUCHEN -->
 <div class="button-container">
+    <!-- SUCHEN -->
+    <input type="text" placeholder="SEARCH EVENTS..." bind:value={searchQuery} class="search-input" />
+
+    <!-- SORTIEREN -->
     <button on:click={sortByDate} class="btn btn-filter">
         SORT BY DATE {activeSort === "date" ? (isAscending ? '↑' : '↓') : ''}
     </button>
@@ -45,9 +57,9 @@
     </button>
 </div>
 
-<!-- EVENT CARD -->
+<!-- EVENT LIST -->
 <div class="events-container">
-    {#each data.events as event}
+    {#each searchByEvents() as event}
         <div class="card">
             <div class="card-poster">
                 <img src={event.poster} alt={event.eventname} class="poster" />
@@ -84,10 +96,6 @@
         height: 100%;
     }
 
-    .card-text {
-        flex-grow: 1;
-    }
-
     .delete-form {
         margin-top: auto;
         padding: 0;
@@ -95,6 +103,7 @@
 
     .button-container {
         display: flex;
+        margin-bottom: 20px;
     }
 
     .btn-filter {
@@ -103,11 +112,22 @@
         margin-bottom: 20px;
     }
 
+    .search-input {
+        width: 40%;
+        padding: 10px;
+        border: 1px solid rgb(5, 32, 43);
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+
     button {
         display: block;
         width: 100%;
         padding: 10px;
-        font-size: 16px;
         text-align: center;
+    }
+
+    input {
+        height: 100%;
     }
 </style>

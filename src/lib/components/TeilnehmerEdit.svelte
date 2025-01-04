@@ -12,17 +12,17 @@
 
             <div class="mb-3">
                 <label class="form-label" for="">VORNAME</label>
-                <input class="form-control" type="text" name="vorname" id="" value={data.person.vorname} />
+                <input class="form-control" type="text" name="vorname" id="" value={data.person.vorname} required/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="">NACHNAME</label>
-                <input class="form-control" type="text" name="nachname" id="" value={data.person.nachname} />
+                <input class="form-control" type="text" name="nachname" id="" value={data.person.nachname} required/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="">EMAIL</label>
-                <input class="form-control" type="text" name="email" id="" value={data.person.email} />
+                <input class="form-control" type="text" name="email" id="" value={data.person.email} required/>
             </div>
             <button class="btn">UPDATE TEILNEHMER</button>
         </form>

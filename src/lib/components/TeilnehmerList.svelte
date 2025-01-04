@@ -1,8 +1,17 @@
+<!-- SCRIPT -->
 <script>
     export let data;
 
+    let searchQuery = '';
     let activeSort = null;
     let isAscending = true;
+
+    // TEILNEHMER SUCHEN
+    function searchByTeilnehmer() {
+        return data.teilnehmer.filter(person =>
+            `${person.vorname} ${person.nachname}`.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+    }
 
     // SORTIEREN NACH VORNAME ODER NACHNAME
     function sortByTeilnehmer(field) {
@@ -21,8 +30,13 @@
     }
 </script>
 
-<!-- FILTER BUTTONS -->
+<!-- HTML -->
 <div class="button-container">
+
+    <!-- SUCHEN -->
+    <input type="text" placeholder="SEARCH NAME ..." bind:value={searchQuery} class="search-input" />
+
+    <!-- SORTIEREN -->
     <button on:click={() => sortByTeilnehmer('vorname')} class="btn btn-filter">
         SORT BY VORNAME {activeSort === 'vorname' ? (isAscending ? '↑' : '↓') : ''}
     </button>
@@ -42,7 +56,7 @@
         </tr>
     </thead>
     <tbody>
-        {#each data.teilnehmer as person}
+        {#each searchByTeilnehmer() as person}
             <tr>
                 <td>{person.vorname}</td>
                 <td>{person.nachname}</td>
@@ -65,6 +79,14 @@
 
 <!-- STYLE -->
 <style>
+    .search-input {
+        width: 40%;
+        padding: 10px;
+        border: 1px solid rgb(5, 32, 43);
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+
     .button-container {
         display: flex;
         margin-bottom: 20px;
@@ -74,6 +96,9 @@
         width: 20%;
         margin-right: 20px;
         margin-bottom: 20px;
+        display: block;
+        padding: 10px;
+        text-align: center;
     }
 
     .action-btn {
@@ -81,11 +106,7 @@
         gap: 10px;
     }
 
-    button {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        text-align: center;
+    input {
+        height: 100%;
     }
 </style>
