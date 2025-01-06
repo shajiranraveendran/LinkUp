@@ -22,7 +22,7 @@
 
             <div class="mb-3">
                 <label class="form-label" for="">EMAIL</label>
-                <input class="form-control" type="text" name="email" id="" value={data.person.email} required/>
+                <input class="form-control" type="email" name="email" id="" value={data.person.email} required/>
             </div>
             <button class="btn">UPDATE TEILNEHMER</button>
         </form>

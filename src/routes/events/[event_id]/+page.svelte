@@ -1,4 +1,5 @@
 <script>
+    import EventDetail from "$lib/components/EventDetail.svelte";
     import EventEdit from "$lib/components/EventEdit.svelte";
     import ImageText from "$lib/components/ImageText.svelte";
     import TeilnehmerInEvent from "$lib/components/TeilnehmerInEvent.svelte";
@@ -43,3 +44,7 @@
 
 <!-- TEILNEHMER ZUM EVENT ANZEIGEN -->
 <TeilnehmerInEvent {data} />
+
+<!--
+<EventDetail {data} />
+-->

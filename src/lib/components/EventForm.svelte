@@ -10,11 +10,11 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">DATUM</label>
-        <input name="datum" class="form-control" type="date" required />
+        <input name="datum" class="form-control" type="date" />
     </div>
     <div class="mb-3">
         <label for="" class="form-label">ADRESSE</label>
-        <input name="adresse" class="form-control" type="text" required />
+        <input name="adresse" class="form-control" type="text" />
     <br />
     <button type="submit" class="btn btn-primary">SUBMIT</button>
 </form>

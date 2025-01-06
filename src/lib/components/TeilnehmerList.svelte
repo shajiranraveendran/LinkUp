@@ -34,7 +34,7 @@
 <div class="button-container">
 
     <!-- SUCHEN -->
-    <input type="text" placeholder="SEARCH NAME ..." bind:value={searchQuery} class="search-input" />
+    <input type="text" placeholder="SEARCH TEILNEHMER ..." bind:value={searchQuery} class="search-input" />
 
     <!-- SORTIEREN -->
     <button on:click={() => sortByTeilnehmer('vorname')} class="btn btn-filter">

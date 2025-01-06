@@ -2,7 +2,6 @@
 <script>
   import ImageText from "$lib/components/ImageText.svelte";
   import Video from "$lib/components/Video.svelte";
-  import Page from "./events/+page.svelte";
 
   import { fade } from "svelte/transition";
 

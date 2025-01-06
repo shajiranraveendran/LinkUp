@@ -15,7 +15,7 @@
 <!-- MESSAGE -->
 {#if form?.success}
     <div class="alert alert-success mt-3">
-        EVENT: "{form.eventname}" wurde für den {form.datum} erstellt!
+        EVENT: "{form.eventname}" wurde erstellt!
     </div>
 {/if}
 

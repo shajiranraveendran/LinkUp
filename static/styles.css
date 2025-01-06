@@ -50,7 +50,6 @@ p {
 
 .navfont {
     color: rgb(61, 115, 136);
-    transition: color 0.3s ease;
     margin: 15px;
     font-size: 25px;
 }

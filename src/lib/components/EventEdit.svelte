@@ -18,11 +18,11 @@
             <input type="hidden" name="id" value={data.event._id} />
             <div class="mb-3">
                 <label class="form-label" for="">EVENTNAME</label>
-                <input class="form-control" type="text" name="eventname" value={data.event.eventname} />
+                <input class="form-control" type="text" name="eventname" value={data.event.eventname} required />
             </div>
             <div class="mb-3">
                 <label class="form-label" for="">BESCHREIBUNG</label>
-                <textarea class="form-control" name="beschreibung" rows="10">{data.event.beschreibung}</textarea>
+                <textarea class="form-control" name="beschreibung" rows="10" required>{data.event.beschreibung}</textarea>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="">DATUM</label>

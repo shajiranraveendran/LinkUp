@@ -49,12 +49,13 @@
     <input type="text" placeholder="SEARCH EVENTS..." bind:value={searchQuery} class="search-input" />
 
     <!-- SORTIEREN -->
-    <button on:click={sortByDate} class="btn btn-filter">
-        SORT BY DATE {activeSort === "date" ? (isAscending ? '↑' : '↓') : ''}
-    </button>
     <button on:click={sortByAlphabet} class="btn btn-filter">
         SORT BY ALPHABET {activeSort === "alphabet" ? (isAscending ? '↑' : '↓') : ''}
     </button>
+    <button on:click={sortByDate} class="btn btn-filter">
+        SORT BY DATE {activeSort === "date" ? (isAscending ? '↑' : '↓') : ''}
+    </button>
+
 </div>
 
 <!-- EVENT LIST -->

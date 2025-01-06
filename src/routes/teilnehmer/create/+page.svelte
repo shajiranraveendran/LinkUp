@@ -15,7 +15,7 @@
 <!-- MESSAGE -->
 {#if form?.success}
     <div class="alert alert-success mt-3">
-        TEILNEHMER: {form.varname} {form.nachname} wurde erstellt!
+        TEILNEHMER: "{form.varname} {form.nachname}" wurde erstellt!
     </div>
 {/if}
 

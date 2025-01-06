@@ -1,3 +1,4 @@
+<!-- SCRIPT -->
 <script>
     export let slides = [
         {
@@ -20,6 +21,7 @@
     ];
 </script>
 
+<!-- HTML -->
 <div
     id="carouselExampleDark"
     class="carousel carousel-dark slide"
@@ -38,10 +40,7 @@
     </div>
     <div class="carousel-inner">
         {#each slides as slide, index}
-            <div
-                class="carousel-item {index === 0 ? 'active' : ''}"
-                data-bs-interval="3500"
-            >
+            <div class="carousel-item {index === 0 ? 'active' : ''}" data-bs-interval="3500">
                 <video class="d-block w-100" autoplay muted loop>
                     <source src={slide.src} type="video/mp4" />
                     Your browser does not support HTML5 video.
@@ -73,6 +72,7 @@
     </button>
 </div>
 
+<!-- STYLE -->
 <style>
     .carousel-inner {
         position: relative;

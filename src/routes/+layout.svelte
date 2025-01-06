@@ -32,7 +32,7 @@
 <style>
     .logo {
         height: 50px;
-        margin: 10px 10px;
+        margin: 25px 10px;
         position: absolute;
     }
 </style>
