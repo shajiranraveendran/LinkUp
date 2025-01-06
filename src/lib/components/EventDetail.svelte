@@ -5,7 +5,8 @@
     export let data;
 </script>
 
-<!-- EVENT DETAIL -->
+<!-- HTML -->
+<!-- EVENT DETAIL LIST -->
 <div class="event-detail">
     <img src={data.event.poster} alt={data.event.eventname} class="detail-poster" />
     <div class="form-container">
@@ -17,8 +18,7 @@
             <div>{data.event.beschreibung}</div>
         </div><br />
     </div>
-</div><br />
-
+</div>
 
 <!-- STYLE -->
 <style>

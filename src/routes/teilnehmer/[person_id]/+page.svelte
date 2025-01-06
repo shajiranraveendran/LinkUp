@@ -5,14 +5,13 @@
     let { data, form } = $props();
 </script>
 
-
 <!-- HTML -->
 <h1>TEILNEHMER DETAIL</h1>
 
 <!-- BACK BUTTON -->
 <a href="/teilnehmer" class="btn btn-primary" role="button">BACK</a><br /><br />
 
-<!-- MESSAGE -->
+<!-- MESSAGE: TEILNEHMER UPDATE -->
 {#if form?.success}
     <div class="alert alert-primary mt-3">
         TEILNEHMER: "{form.vorname} {form.nachname}" wurde aktualisiert!

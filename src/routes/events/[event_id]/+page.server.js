@@ -2,8 +2,8 @@ import { getEvent, getTeilnehmer, addTeilnehmerToEvent, removeTeilnehmerFromEven
 import { redirect } from "@sveltejs/kit";
 
 export async function load({ params }) {
-    const event = await getEvent(params.event_id); // EVENT + TEILNEHMER LADEN
-    const teilnehmer = await getTeilnehmer(); // ALLE TEILNEHMER LADEN (DROPDOWN)
+    const event = await getEvent(params.event_id);
+    const teilnehmer = await getTeilnehmer();
     return {
         event,
         teilnehmer,
@@ -38,10 +38,8 @@ export const actions = {
     
         await deleteEvent(eventId);
         throw redirect(303, "/events", {success: true, eventname: eventName});
-
     },
     
-
     // TEILNEHMER HINZUFÜGEN
     addTeilnehmer: async ({ request, params }) => {
         const data = await request.formData();

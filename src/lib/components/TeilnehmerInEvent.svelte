@@ -3,8 +3,7 @@
     export let data;
 </script>
 
-
-<!-- TEILNEHMER ZUM EVENT ANZEIGEN -->
+<!-- HTML -->
 {#if data.event.teilnehmer?.length > 0}
     <br /><br />
     <table>
@@ -18,6 +17,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- TEILNEHMER IM EVENT ANZEIGEN (DROPDOWN) -->
             {#each data.event.teilnehmer as teilnehmer}
                 <tr>
                     <td>{teilnehmer._id}</td>
@@ -35,6 +35,8 @@
             {/each}
         </tbody>
     </table>
+    
+<!-- MESSAGE: FALLS KEINE TEILNEHMER VORHANDEN -->
 {:else}
     <br />
     <div class="alert alert-primary mt-3">

@@ -15,7 +15,6 @@ export const actions = {
         const vorname = data.get('vorname');
         const nachname = data.get('nachname');
 
-        // MESSAGE
         try {
             await deletePerson(id);
             return { success: true, vorname: vorname, nachname: nachname };

@@ -5,7 +5,7 @@
     export let data;
 </script>
 
-<!-- EVENT FORM -->
+<!-- HTML -->
 <div class="event-detail">
     <div class="image-container">
         <img src={data.event.poster} alt={data.event.eventname} class="detail-poster" />

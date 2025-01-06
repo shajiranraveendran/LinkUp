@@ -15,7 +15,6 @@
 <!-- HTML -->
 <!-- WELCOME MESSAGE -->
 <div>
-
   <button class="btn" on:click={toggleFade}>WILLKOMMEN BEI LINKUP!</button>
 
   {#if showFade}

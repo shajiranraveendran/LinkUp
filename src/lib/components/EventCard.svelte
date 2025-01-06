@@ -1,3 +1,4 @@
+<!-- SCRIPT -->
 <script>
     export let data;
 
@@ -12,7 +13,7 @@
         );
     }
 
-    // SORTIEREN NACH DATUM
+    // EVENTS SORTIEREN NACH DATUM
     function sortByDate() {
         if (activeSort === "date") {
             isAscending = !isAscending;
@@ -27,7 +28,7 @@
         });
     }
 
-    // SORTIEREN NACH ALPHABET
+    // EVENTS SORTIEREN NACH ALPHABET
     function sortByAlphabet() {
         if (activeSort === "alphabet") {
             isAscending = !isAscending;
@@ -43,12 +44,12 @@
     }
 </script>
 
-<!-- FILTER UND SUCHEN -->
+<!-- HTML -->
 <div class="button-container">
-    <!-- SUCHEN -->
+    <!-- EVENT SUCHEN -->
     <input type="text" placeholder="SEARCH EVENTS..." bind:value={searchQuery} class="search-input" />
 
-    <!-- SORTIEREN -->
+    <!-- EVENTS SORTIEREN -->
     <button on:click={sortByAlphabet} class="btn btn-filter">
         SORT BY ALPHABET {activeSort === "alphabet" ? (isAscending ? '↑' : '↓') : ''}
     </button>
@@ -72,7 +73,7 @@
                 {event.adresse}
             </div>
 
-            <!-- DELETE BUTTON -->
+            <!-- EVENT DELETE -->
             <form method="POST" action="?/delete" class="delete-form">
                 <input type="hidden" name="id" value={event._id} />
                 <input type="hidden" name="eventname" value={event.eventname} />

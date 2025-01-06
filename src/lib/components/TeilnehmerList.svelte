@@ -13,7 +13,7 @@
         );
     }
 
-    // SORTIEREN NACH VORNAME ODER NACHNAME
+    // TEILNEHMER SORTIEREN NACH VORNAME ODER NACHNAME
     function sortByTeilnehmer(field) {
         if (activeSort === field) {
             isAscending = !isAscending;
@@ -33,10 +33,10 @@
 <!-- HTML -->
 <div class="button-container">
 
-    <!-- SUCHEN -->
+    <!-- TEILNEHMER SUCHEN -->
     <input type="text" placeholder="SEARCH TEILNEHMER ..." bind:value={searchQuery} class="search-input" />
 
-    <!-- SORTIEREN -->
+    <!-- TEILNEHMER SORTIEREN -->
     <button on:click={() => sortByTeilnehmer('vorname')} class="btn btn-filter">
         SORT BY VORNAME {activeSort === 'vorname' ? (isAscending ? '↑' : '↓') : ''}
     </button>

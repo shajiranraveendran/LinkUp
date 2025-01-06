@@ -1,13 +1,12 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { DB_URI } from "$env/static/private";
 
-// CONNECT TO MONGODB
+//////////////////////////////// CONNECT TO MONGO-DB ////////////////////////////////
 const client = new MongoClient(DB_URI);
 await client.connect();
 const db = client.db("LinkUpDB");
 
-// TEILNEHMER //
-
+//////////////////////////////// TEILNEHMER ////////////////////////////////
 // GET TEILNEHMER
 export async function getTeilnehmer() {
     let teilnehmer = [];
@@ -94,8 +93,7 @@ export async function deletePerson(id) {
     }
 }
 
-// EVENTS //
-
+//////////////////////////////// EVENTS ////////////////////////////////
 // GET EVENTS
 export async function getEvents() {
     let events = [];
@@ -184,9 +182,7 @@ export async function deleteEvent(id) {
 }
 
 
-
-// TEILNEHMER ZU EVENTS //
-
+//////////////////////////////// TEILNEHMER ZU EVENTS ////////////////////////////////
 // ADD TEILNEHMER TO EVENT
 export async function addTeilnehmerToEvent(eventId, teilnehmerId) {
     try {
@@ -235,7 +231,7 @@ export async function removeTeilnehmerFromEvent(eventId, teilnehmerId) {
             throw new Error(`Teilnehmer mit ID ${teilnehmerId} ist nicht im Event.`);
         }
 
-        // REMOVE TEILNEHMER FROM EVENT
+        // UPDATE TEILNEHMER FROM EVENT
         const query = { _id: new ObjectId(eventId) };
         const update = { $pull: { teilnehmer: { _id: teilnehmerId } } };
         await collectionEvents.updateOne(query, update);

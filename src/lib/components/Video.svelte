@@ -1,4 +1,5 @@
 <!-- SCRIPT -->
+<!-- VIDEOS -->
 <script>
     export let slides = [
         {
@@ -22,22 +23,10 @@
 </script>
 
 <!-- HTML -->
-<div
-    id="carouselExampleDark"
-    class="carousel carousel-dark slide"
-    data-bs-ride="carousel"
->
-    <div class="carousel-indicators">
-        {#each slides as slide, index}
-            <button
-                type="button"
-                data-bs-target="#carouselExampleDark"
-                data-bs-slide-to={index}
-                class={index === 0 ? "active" : ""}
-                aria-label={`Slide ${index + 1}`}
-            ></button>
-        {/each}
-    </div>
+<!-- CAROUSEL -->
+<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    
+    <!-- CAROUSEL AUTOMATIC SLIDE -->
     <div class="carousel-inner">
         {#each slides as slide, index}
             <div class="carousel-item {index === 0 ? 'active' : ''}" data-bs-interval="3500">
@@ -52,6 +41,8 @@
             </div>
         {/each}
     </div>
+
+    <!-- CAROUSEL SIDE BUTTON -->
     <button
         class="carousel-control-prev"
         type="button"
@@ -70,6 +61,19 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+
+    <!-- CAROUSEL BOTTOM BUTTON -->
+    <div class="carousel-indicators">
+        {#each slides as slide, index}
+            <button
+                type="button"
+                data-bs-target="#carouselExampleDark"
+                data-bs-slide-to={index}
+                class={index === 0 ? "active" : ""}
+                aria-label={`Slide ${index + 1}`}
+            ></button>
+        {/each}
+    </div>
 </div>
 
 <!-- STYLE -->

@@ -3,8 +3,8 @@
     export let data;
 </script>
 
-
-<!-- TEILNEHMER DETAIL -->
+<!-- HTML -->
+<!-- TEILNEHMER AKTUALISIEREN -->
 <div class="event-detail">
     <div class="form-container">
         <form method="POST" action="?/update">
@@ -29,6 +29,7 @@
     </div>
 </div>
 
+<!-- STYLE -->
 <style>
     .event-detail {
         display: flex;

@@ -1,4 +1,4 @@
-<!-- EVENT FORM -->
+<!-- EVENT FORMULAR -->
 <form method="POST" action="?/create">
     <div class="mb-3">
         <label for="" class="form-label">EVENTNAME</label>

@@ -1,3 +1,4 @@
+<!-- SCIRPT -->
 <script>
     import EventDetail from "$lib/components/EventDetail.svelte";
     import EventEdit from "$lib/components/EventEdit.svelte";
@@ -8,6 +9,7 @@
     let { data, form } = $props();
 </script>
 
+<!-- HTML -->
 <h1>EVENT DETAIL</h1>
 
 <!-- BACK BUTTON -->

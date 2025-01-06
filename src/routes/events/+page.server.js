@@ -13,8 +13,7 @@ export const actions = {
         const data = await request.formData();
         const eventId = data.get('id');
         const eventName = data.get('eventname');
-
-        // MESSAGE
+        
         try {
             await deleteEvent(eventId);
             return { success: true, eventname: eventName };

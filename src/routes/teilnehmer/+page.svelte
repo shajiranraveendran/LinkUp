@@ -5,13 +5,11 @@
     let { data, form} = $props();
 </script>
 
-
 <!-- HTML -->
 <h1>TEILNEHMER</h1>
 
 <!-- TEILNEHMER ADD -->
 <a href="/teilnehmer/create" class="btn btn-primary" role="button">ADD TEILNEHMER</a><br /><br />
-
 
 <!-- MESSAGE -->
 {#if form?.success}
@@ -19,7 +17,6 @@
         TEILNEHMER: "{form.vorname} {form.nachname}" wurde gelöscht!
     </div>
 {/if}
-
 
 <!-- TEILNEHMER LIST -->
 <br /><TeilnehmerList { data } />
