@@ -9,7 +9,7 @@
     // EVENTS FILTERN
     function searchByEvents() {
         return data.events.filter((event) =>
-            `${event.eventname} ${event.adresse}`
+            `${event.eventname} ${event.adresse} ${event.datum}`
                 .toLowerCase()
                 .includes(searchQuery.toLowerCase()),
         );

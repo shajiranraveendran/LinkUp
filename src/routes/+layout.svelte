@@ -1,12 +1,11 @@
 <!-- SCRIPT -->
 <script>
-    import { fly } from "svelte/transition";
     let { children } = $props();
 </script>
 
 <!-- HTML -->
 <!-- NAVIGATION-->
-<div class="nav" transition:fly>
+<div class="nav">
     <img src="\images\logo.jpg" alt="Logo" class="logo" />
 
     <nav class="navbar">

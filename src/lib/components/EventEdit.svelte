@@ -51,18 +51,16 @@
     }
 
     .poster-detail {
-        height: 200px;
         border-radius: 5px;
+        height: 200px;
         width: 100%;
     }
 
     .poster-container {
         flex: 1;
-        max-width: 400px;
     }
 
     .form-container {
         flex: 2;
-        width: 100%;
     }
 </style>

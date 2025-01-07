@@ -9,7 +9,9 @@
     // TEILNEHMER SUCHEN
     function searchByTeilnehmer() {
         return data.teilnehmer.filter(person =>
-            `${person.vorname} ${person.nachname}`.toLowerCase().includes(searchQuery.toLowerCase())
+            `${person.vorname} ${person.nachname}`
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
         );
     }
 
