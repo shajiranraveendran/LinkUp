@@ -7,7 +7,7 @@
 <!-- HTML -->
 <!-- NAVIGATION-->
 <div class="nav" transition:fly>
-    <img src="\images\logo.jpg" alt="Logo" class ="logo">
+    <img src="\images\logo.jpg" alt="Logo" class="logo" />
 
     <nav class="navbar">
         <div class="container-fluid">
@@ -24,15 +24,42 @@
 </div>
 
 <!-- FOOTER -->
-<footer class="nav footer">
-    @2025 RAVEENDRAN SHAJIRAN - PROTOTYPING
-</footer>
+<footer class="nav footer">@2025 RAVEENDRAN SHAJIRAN - PROTOTYPING</footer>
 
 <!-- STYLE -->
 <style>
+    /* NAVIGATION */
     .logo {
         height: 50px;
         margin: 25px 10px;
         position: absolute;
+    }
+
+    .nav {
+        border: 1px solid #cccccc2d;
+        background-color: rgb(5, 32, 43);
+        border-radius: 5px;
+    }
+
+    .navbar {
+        display: flex;
+        margin: auto;
+    }
+
+    .navfont {
+        color: rgb(61, 115, 136);
+        margin: 15px;
+        font-size: 25px;
+    }
+
+    .navfont:hover {
+        color: #fafafafb;
+    }
+
+    /* FOOTER */
+    .footer {
+        text-align: center;
+        padding: 20px;
+        margin-top: 50px;
     }
 </style>

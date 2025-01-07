@@ -20,4 +20,3 @@
 
 <!-- TEILNEHMER FORMULAR -->
 <TeilnehmerForm { form } />
-

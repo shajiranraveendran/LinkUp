@@ -48,9 +48,9 @@
 <!-- STYLE -->
 <style>
   div {
-    background-color: rgb(5, 32, 43);
     padding: 20px;
     border-radius: 5px;
+    background-color: rgb(5, 32, 43);
     color: rgb(12, 73, 97);
   }
 </style>

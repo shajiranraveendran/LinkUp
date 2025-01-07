@@ -37,10 +37,10 @@
     <input type="text" placeholder="SEARCH TEILNEHMER ..." bind:value={searchQuery} class="search-input" />
 
     <!-- TEILNEHMER SORTIEREN -->
-    <button on:click={() => sortByTeilnehmer('vorname')} class="btn btn-filter">
+    <button on:click={() => sortByTeilnehmer('vorname')} class="btn filter-button">
         SORT BY VORNAME {activeSort === 'vorname' ? (isAscending ? '↑' : '↓') : ''}
     </button>
-    <button on:click={() => sortByTeilnehmer('nachname')} class="btn btn-filter">
+    <button on:click={() => sortByTeilnehmer('nachname')} class="btn filter-button">
         SORT BY NACHNAME {activeSort === 'nachname' ? (isAscending ? '↑' : '↓') : ''}
     </button>
 </div>
@@ -62,7 +62,7 @@
                 <td>{person.nachname}</td>
                 <td><a href="mailto:{person.email}" class="mail">{person.email}</a></td>
                 <td>
-                    <div class="action-btn">
+                    <div class="action-button">
                         <a href={"/teilnehmer/" + person._id} class="btn">EDIT</a>
                         <form method="POST" action="?/delete">
                             <input type="hidden" name="id" value={person._id} />
@@ -92,7 +92,7 @@
         margin-bottom: 20px;
     }
 
-    .btn-filter {
+    .filter-button {
         width: 20%;
         margin-right: 20px;
         margin-bottom: 20px;
@@ -101,7 +101,7 @@
         text-align: center;
     }
 
-    .action-btn {
+    .action-button {
         display: flex;
         gap: 10px;
     }

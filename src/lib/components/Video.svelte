@@ -24,12 +24,18 @@
 
 <!-- HTML -->
 <!-- CAROUSEL -->
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    
+<div
+    id="carouselExampleDark"
+    class="carousel carousel-dark slide"
+    data-bs-ride="carousel"
+>
     <!-- CAROUSEL AUTOMATIC SLIDE -->
     <div class="carousel-inner">
         {#each slides as slide, index}
-            <div class="carousel-item {index === 0 ? 'active' : ''}" data-bs-interval="3500">
+            <div
+                class="carousel-item {index === 0 ? 'active' : ''}"
+                data-bs-interval="3500"
+            >
                 <video class="d-block w-100" autoplay muted loop>
                     <source src={slide.src} type="video/mp4" />
                     Your browser does not support HTML5 video.
@@ -78,19 +84,30 @@
 
 <!-- STYLE -->
 <style>
+    .carousel {
+        width: 80%;
+        padding: 40px;
+        margin: auto;
+    }
+
     .carousel-inner {
         position: relative;
         width: 100%;
         overflow: hidden;
     }
 
-    .carousel-item video {
-        width: 100%;
-    }
-
     .carousel-caption {
         position: absolute;
+        padding: 30px;
         bottom: 20px;
+        left: 0px;
+        width: 100%;
+        text-align: center;
         color: white;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    video {
+        border-radius: 10px;
     }
 </style>

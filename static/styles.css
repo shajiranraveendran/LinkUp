@@ -12,11 +12,7 @@ h1 {
     margin-top: 20px;
 }
 
-h5 {
-    color:#ffffff;
-}
-
-p {
+h5, p {
     color:aliceblue
 }
 
@@ -33,40 +29,6 @@ p {
 .mail {
     color: rgb(61, 115, 136);
 }
-
-
-/* NAVIGATION */
-.nav {
-    border: 1px solid #cccccc2d;
-    background-color: rgb(5, 32, 43);
-    border-radius: 5px;
-}
-
-.navbar {
-    display: flex;
-    margin: auto;
-    ;
-}
-
-.navfont {
-    color: rgb(61, 115, 136);
-    margin: 15px;
-    font-size: 25px;
-}
-
-.navfont:hover {
-    color: #fafafafb;
-}
-
-
-/* FOOTER */
-.footer{
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-
-}
-
 
 /* TABLE */
 table {
@@ -93,62 +55,3 @@ tbody {
 tr:hover {
     background-color: rgb(5, 32, 43);
 }
-
-
-/* CARD */
-.events-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.card {
-    background-color: rgb(5, 32, 43);
-    color: #c3e4eefb;
-    border-radius: 5px;
-    width: 18%;
-}
-
-.card-poster {
-    padding: 0px;
-}
-
-.poster {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.card-text {
-    padding: 20px;
-}
-
-.title {
-    color: rgb(61, 115, 136);
-    font-weight: bold;
-}
-
-.title:hover {
-    color: #fafafafb;
-}
-
-/* VIDEO */
-.carousel {
-    width: 80%;
-    padding: 40px;
-    margin: auto;
-}
-
-video{
-    border-radius: 10px;
-}
-
-.carousel-caption {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 30px;
-    text-align: center;
-}
-
-

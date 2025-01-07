@@ -20,5 +20,3 @@
 
 <!-- TEILNEHMER FORMULAR -->
 <br /><br /><EventForm { form } />
-
-

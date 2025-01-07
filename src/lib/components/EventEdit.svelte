@@ -7,8 +7,8 @@
 
 <!-- HTML -->
 <div class="event-detail">
-    <div class="image-container">
-        <img src={data.event.poster} alt={data.event.eventname} class="detail-poster" />
+    <div class="poster-container">
+        <img src={data.event.poster} alt={data.event.eventname} class="poster-detail" />
         <ImageText />
     </div>
     
@@ -50,19 +50,19 @@
         gap: 40px;
     }
 
-    .image-container {
+    .poster-detail {
+        height: 200px;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .poster-container {
         flex: 1;
         max-width: 400px;
     }
 
     .form-container {
         flex: 2;
-        width: 100%;
-    }
-
-    .detail-poster {
-        height: 200px;
-        border-radius: 5px;
         width: 100%;
     }
 </style>
