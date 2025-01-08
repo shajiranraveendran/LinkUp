@@ -4,20 +4,18 @@
     export let slides = [
         {
             src: "videos/video1.mp4",
-            title: "Video Slide",
-            description: "A brief description of the video content.",
+            title: "Discussion",
+            description: "During the brainstorming session, the project team engaged in a productive discussion about innovative app features.",
         },
         {
             src: "videos/video2.mp4",
-            title: "Second Slide Label",
-            description:
-                "Some representative placeholder content for the second slide.",
+            title: "Examination",
+            description: "The committee's thorough examination of the proposal revealed several areas that needed improvement.",
         },
         {
             src: "videos/video3.mp4",
-            title: "Third Slide Label",
-            description:
-                "Some representative placeholder content for the third slide.",
+            title: "Argument",
+            description: "The two colleagues had an argument over the best approach to solve the software bug.",
         },
     ];
 </script>
